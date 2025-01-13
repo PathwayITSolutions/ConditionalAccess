@@ -22,7 +22,7 @@ Default Settings are **in bold**. Settings you need to customize are ***underlin
 
 ## Essentials
 
-### [CA000-Global-BaselineProtection-AllApps-AnyPlatform-Block-Block legacy authentication v1.0](conditional access/essentials/CA000-Global-BaselineProtection-AllApps-AnyPlatform-Block-Block legacy authentication v1.0.json)
+### [CA000-Global-BaselineProtection-AllApps-AnyPlatform-Block-Block legacy authentication v1.0](essentials/CA000-Global-BaselineProtection-AllApps-AnyPlatform-Block-Block legacy authentication v1.0.json)
 This is set to **All Users** with no exclusions, Target resources **All resources**, Conditions Client apps **Exchange ActiveSync clients** and **Other clients**, Grant **Block access**
 
 It is meant to be run without the Breakglass exception.
