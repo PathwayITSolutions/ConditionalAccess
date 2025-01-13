@@ -1,6 +1,8 @@
 # ConditionalAccess
 CA Policies that conform to the MS naming convention found https://learn.microsoft.com/en-us/azure/architecture/guide/security/conditional-access-framework
 
+These were created to assist in standardizing Conditional Access policies in the same way that GPMC templates have for Active Directory
+
 In https://portal.azure.com/#view/Microsoft_AAD_ConditionalAccess/ConditionalAccessBlade/~/Policies you have an **"Upload policy file"** option. There you can use these JSON.
 
 Policies are split into 5 sections:
@@ -10,7 +12,6 @@ Policies are split into 5 sections:
 [Application Policies](#application-policies)\
 [Non-human identities](#non-human-identities)\
 [Risk-based](#risk-based)
-
 
 When importing, use the **"Review + create"** option. This will allow you to set the User/Group inclusions and exclusions.
 I would recommend setting these to **"Report-only"** until you are certain you have them set correctly.
@@ -23,6 +24,7 @@ Default Settings are **in bold**. Settings you need to customize are ***underlin
 
 ### CA000-Global-BaselineProtection-AllApps-AnyPlatform-Block-Block legacy authentication v1.0
 This is set to **All Users** with no exclusions, Target resources **All resources**, Conditions Client apps **Exchange ActiveSync clients** and **Other clients**, Grant **Block access**
+
 It is meant to be run without the Breakglass exception.
 
 ### CA001-Global-BaselineProtection-AllApps-AnyPlatform-MFA-Require MFA for all users v1.0
@@ -35,14 +37,17 @@ The Approved access countries and Blocked access countries lists need to be crea
 
 ### CA003-Global-DataProtection-AllApps-AnyPlatform-SessionControl-8H session lifetime for managed devices v1.0
 This is set to **All Users** with no exclusions, Target resources **All resources**, Conditions Filter for devices Include filtered devices **device.deviceOwnership -eq "Company**, Grant **Sign-in frequency Periodic reauthentication 8 hours**
+
 It is meant to be run without the Breakglass exception.
 
 ### CA004-Global-DataProtection-AllApps-AnyPlatform-SessionControl-3H session lifetime for unmanaged devices v1.0
 This is set to **All Users** with no exclusions, Target resources **All resources**, Conditions Filter for devices Exclude filtered devices **device.deviceOwnership -eq "Company**, Grant **Sign-in frequency Periodic reauthentication 3 hours**
+
 It is meant to be run without the Breakglass exception.
 
 ### CA005-Global-BaselineProtection-CombinedRegistration-AnyPlatform-MFA-Require MFA for registering security info v1.0
 This is set to **All Users** with ***Guest or external users exclusion***, Target resources **User actions, register security information**, Grant **Require authentication strength, Multifactor authentication**
+
 It is meant to be run without the Breakglass exception.
 
 ### CA006-Global-DeviceProtection-AllApps-WindowsPhone-Block-Block Unknown platforms v1.0
@@ -64,10 +69,19 @@ You will need to select the Directory Roles. I recommend everything Administrato
 ### CA400-Guests-BaselineProtection-AllApps-AnyPlatform-MFA-Require MFA for all guest users v1.0
 This is set to **Select users and groups, Guest or external users** with ***Breakglass exclusion***, Target resources **All resources**, Grant **Require authentication strength, Multifactor authentication**
 
+Select all guest and external users
+
 ### CA401-Guests-ComplianceProtection-CombinedRegistration-AnyPlatform-TOU-Require TOU for security info for Guests v1.0
 This is set to **Select users and groups, Guest or external users** with ***Breakglass exclusion***, Target resources **Register security information**, Grant ***TOU***
 
+Select all guest and external users
+
 You must create the Terms Of Use before configuring this policy. You can create a bare bones TOU, install the policy and then flesh out the TOU later if needed
+
+### CA900-Breakglass-IdentityProtection-AllApps-AnyPlatform-AuthStr-Require Phishing-resistant Authentication for BreakGlass Accounts v1.0
+This is set to ***Breakglass account/group***, Target resources **All resources**, Grant **Require authentication strength, Phishing-resistant MFA**
+
+Critical policy, as the Breakglass account/group is exempt from most of the other policies. It is a strong recommendation that Breakglass accounts are an onmicrosoft.com account with no licenses and Global Administrator role. A FIDO2 physical key with a PIN
 
 ## Privileged Access
 
@@ -129,11 +143,6 @@ TBD
 
 ### CA505-GuestAdmins-DataProtection-AnyPlatform-AllApps-SessionControl-Non-persistent browser session & 1h frequency v1.0
 TBD
-
-### CA900-Breakglass-IdentityProtection-AllApps-AnyPlatform-AuthStr-Require Phishing-resistant Authentication for BreakGlass Accounts v1.0
-This is set to ***Breakglass account/group***, Target resources **All resources**, Grant **Require authentication strength, Phishing-resistant MFA**
-
-Critical policy, as the Breakglass account/group is exempt from most of the other policies
 
 ## Application Policies
 
