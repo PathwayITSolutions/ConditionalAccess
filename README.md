@@ -5,10 +5,10 @@ In https://portal.azure.com/#view/Microsoft_AAD_ConditionalAccess/ConditionalAcc
 
 Policies are split into 5 sections:
 
-[Essentials](#essentials)
-[Privileged Access](#privileged-access)
-[Application Policies](#application-policies)
-[Non-human identities](#non-human-identities)
+[Essentials](#essentials)\
+[Privileged Access](#privileged-access)\
+[Application Policies](#application-policies)\
+[Non-human identities](#non-human-identities)\
 [Risk-based](#risk-based)
 
 
