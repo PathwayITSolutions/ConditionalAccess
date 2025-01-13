@@ -3,6 +3,15 @@ CA Policies that conform to the MS naming convention found https://learn.microso
 
 In https://portal.azure.com/#view/Microsoft_AAD_ConditionalAccess/ConditionalAccessBlade/~/Policies you have an **"Upload policy file"** option. There you can use these JSON.
 
+Policies are split into 5 sections:
+
+[Essentials](#Essentials)
+Privileged Access
+Application Policies
+Non-human identities
+Risk-based
+
+
 When importing, use the **"Review + create"** option. This will allow you to set the User/Group inclusions and exclusions.
 I would recommend setting these to **"Report-only"** until you are certain you have them set correctly.
 
@@ -100,6 +109,8 @@ You will need to select the Directory Roles. I recommend everything Administrato
 This is set to ***Select users and groups, Directory Roles*** with ***Breakglass exclusion***, Target resources **All resources**, Conditions User risk **High, Medium**, Grant **Require authentication strength, Passwordless MFA, Require password change** Require all the selected controls
 
 You will need to select the Directory Roles. I recommend everything Administrator, Editor, Technician, Engineer, Specialist, Creator, Security, Developer, Attribute, Writer, Inviter, Analyst, Author since all of these have some kind of write-access to the environment, or access privileged information
+
+CA022 applies similar controls to all users. CA102 mirrors these controls without Password reset. CA025 blocks High sign-in risk.
 
 ### CA500-GuestAdmins-AttackSurfaceReduction-O365-AnyPlatform-Block-Block access to Office 365 v1.0
 TBD
@@ -202,6 +213,8 @@ TBD
 ### CA022-Global-IdentityProtection-AllApps-AnyPlatform-MFA-Require MFA for Medium & High sign-in risk v1.0
 TBD
 
+CA102 applies similar controls to admins. CA107 extends these controls with Password reset. CA025 blocks High sign-in risk.
+
 ### CA023-Global-IdentityProtection-AllApps-AnyPlatform-MFA-Require MFA for Low \u0026 Medium user risk v1.0
 TBD
 
@@ -210,6 +223,8 @@ TBD
 
 ### CA025-Global-IdentityProtection-AllApps-AnyPlatform-Block-Block High sign-in risk v1.0
 TBD
+
+CA102 applies MFA controls to admins. CA107 extends these controls with Password reset. CA022 requires MFA for Medium & High sign-in risk.
 
 ### CA026-Global-IdentityProtection-AllApps-AnyPlatform-Block-Block High user risk v1.0
 TBD
