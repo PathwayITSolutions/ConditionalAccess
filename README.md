@@ -5,11 +5,11 @@ In https://portal.azure.com/#view/Microsoft_AAD_ConditionalAccess/ConditionalAcc
 
 Policies are split into 5 sections:
 
-[Essentials](#Essentials)
-Privileged Access
-Application Policies
-Non-human identities
-Risk-based
+[Essentials](#essentials)
+[Privileged Access](#privileged-access)
+[Application Policies](#application-policies)
+[Non-human identities](#non-human-identities)
+[Risk-based](#risk-based)
 
 
 When importing, use the **"Review + create"** option. This will allow you to set the User/Group inclusions and exclusions.
