@@ -81,7 +81,7 @@ You must create the Terms Of Use before configuring this policy. You can create 
 ### CA900-Breakglass-IdentityProtection-AllApps-AnyPlatform-AuthStr-Require Phishing-resistant Authentication for BreakGlass Accounts v1.0
 This is set to ***Breakglass account/group***, Target resources **All resources**, Grant **Require authentication strength, Phishing-resistant MFA**
 
-Critical policy, as the Breakglass account/group is exempt from most of the other policies. It is a strong recommendation that Breakglass accounts are an onmicrosoft.com account with no licenses and Global Administrator role. A FIDO2 physical key with a PIN
+Critical policy, as the Breakglass account/group is exempt from most of the other policies. It is a strong recommendation that Breakglass accounts are an onmicrosoft.com account with no licenses and Global Administrator role. A FIDO2 physical key with a PIN is the recommended authentication method, and ideally you will provision three Breakglass accounts, with one kept onsite in a safe with the login details, two kept offsite at different locations.
 
 ## Privileged Access
 
