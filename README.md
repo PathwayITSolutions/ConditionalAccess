@@ -1,4 +1,4 @@
-# ConditionalAccess
+needed# ConditionalAccess
 CA Policies that conform to the MS naming convention found https://learn.microsoft.com/en-us/azure/architecture/guide/security/conditional-access-framework
 
 These were created to assist in standardizing Conditional Access policies in the same way that GPMC templates have for Active Directory
@@ -18,7 +18,7 @@ I would recommend setting these to **"Report-only"** until you are certain you h
 
 At least one **Global Administrator** should be initially exempt from all policies created. This is typically your BreakGlass account/group. Only remove this exclusion once you have proven that another **Conditional Access Administrator** or **Global Administrator** has access to reverse any potential lockouts.
 
-Default Settings are **in bold**. Settings you need to customize are ***underlined in bold***.
+Default Settings are **in bold**. Settings you need to customize are **<ins>underlined in bold</ins>**.
 
 ## Essentials
 
@@ -28,10 +28,10 @@ This is set to **All Users** with no exclusions, Target resources **All resource
 It is meant to be run without the Breakglass exception.
 
 ### CA001-Global-BaselineProtection-AllApps-AnyPlatform-MFA-Require MFA for all users v1.0
-This is set to ***All Users group*** with ***Breakglass exclusion***, Target resources **All resources**, Grant access **Require authentication strength, Multifactor authentication strength**
+This is set to **<ins>All Users group</ins>** with **<ins>Breakglass exclusion</ins>**, Target resources **All resources**, Grant access **Require authentication strength, Multifactor authentication strength**
 
 ### CA002-Global-AttackSurfaceReduction-AllApps-AnyPlatform-Block-Block non-business countries v1.0
-This is set to ***All Users group*** with ***Breakglass exclusion***, Target resources **All resources**, Network Include Selected networks and locations ***Blocked access countries*** Exclude Selected entworks and locations ***Approved access countries***, Grant **Block access**
+This is set to **<ins>All Users group</ins>** with **<ins>Breakglass exclusion</ins>**, Target resources **All resources**, Network Include Selected networks and locations **<ins>Blocked access countries</ins>** Exclude Selected entworks and locations **<ins>Approved access countries</ins>**, Grant **Block access**
 
 The Approved access countries and Blocked access countries lists need to be created in Microsoft Entra Named Locations before making this policy
 
@@ -46,81 +46,81 @@ This is set to **All Users** with no exclusions, Target resources **All resource
 It is meant to be run without the Breakglass exception.
 
 ### CA005-Global-BaselineProtection-CombinedRegistration-AnyPlatform-MFA-Require MFA for registering security info v1.0
-This is set to **All Users** with ***Guest or external users exclusion***, Target resources **User actions, register security information**, Grant **Require authentication strength, Multifactor authentication**
+This is set to **All Users** with **<ins>Guest or external users exclusion</ins>**, Target resources **User actions, register security information**, Grant **Require authentication strength, Multifactor authentication**
 
 It is meant to be run without the Breakglass exception.
 
 ### CA006-Global-DeviceProtection-AllApps-WindowsPhone-Block-Block Unknown platforms v1.0
-This is set to **All Users** with ***Breakglass exclusion***, Target resources **All resources**, Conditions Device platforms Include **Windows Phone** Exclude  **Android, iOS, Windows, macOS, Linux**, Grant **Block access**
+This is set to **All Users** with **<ins>Breakglass exclusion</ins>**, Target resources **All resources**, Conditions Device platforms Include **Windows Phone** Exclude  **Android, iOS, Windows, macOS, Linux**, Grant **Block access**
 
 ### CA007-Global-Data&AppProtection-O365-iOS&Android-APP-Require App Protection Policy v1.0
-This is set to **All Users** with ***Breakglass exclusion***, Target resources **Select resources, Office 365**, Conditions Device platforms Include **Android, iOS** Exclude  **WindowsPhone, Windows, macOS, Linux**, Grant **Require app protection policy**
+This is set to **All Users** with **<ins>Breakglass exclusion</ins>**, Target resources **Select resources, Office 365**, Conditions Device platforms Include **Android, iOS** Exclude  **WindowsPhone, Windows, macOS, Linux**, Grant **Require app protection policy**
 
 Policies in Report-only mode requiring compliant devices may prompt users on macOS, iOS, Android, and Linux to select a device certificate.
 
 ### CA008-Global-DataProtection-AllApps-iOS&Android-Compliance-Require Compliance policy v1.0
-This is set to **All Users** with ***Breakglass exclusion***, Target resources **Select resources, Office 365**, Conditions Device platforms Include **Android, iOS** Exclude  **WindowsPhone, Windows, macOS, Linux**, Grant **Require device to be marked as compliant**
+This is set to **All Users** with **<ins>Breakglass exclusion</ins>**, Target resources **Select resources, Office 365**, Conditions Device platforms Include **Android, iOS** Exclude  **WindowsPhone, Windows, macOS, Linux**, Grant **Require device to be marked as compliant**
 
 ### CA100-Admins-IdentityProtection-AllApps-AnyPlatform-AuthStr-Require Phishing-Resistant MFA for Admin roles v1.0
-This is set to ***Select users and groups, Directory Roles*** with ***Breakglass exclusion***, Target resources **All resources**, Grant **Require authentication strength, Phishing-resistant MFA**
+This is set to **<ins>Select users and groups, Directory Roles</ins>** with **<ins>Breakglass exclusion</ins>**, Target resources **All resources**, Grant **Require authentication strength, Phishing-resistant MFA**
 
 You will need to select the Directory Roles. I recommend everything Administrator, Editor, Technician, Engineer, Specialist, Creator, Security, Developer, Attribute, Writer, Inviter, Analyst, Author since all of these have some kind of write-access to the environment, or access privileged information
 
 ### CA400-Guests-BaselineProtection-AllApps-AnyPlatform-MFA-Require MFA for all guest users v1.0
-This is set to **Select users and groups, Guest or external users** with ***Breakglass exclusion***, Target resources **All resources**, Grant **Require authentication strength, Multifactor authentication**
+This is set to **Select users and groups, Guest or external users** with **<ins>Breakglass exclusion</ins>**, Target resources **All resources**, Grant **Require authentication strength, Multifactor authentication**
 
 Select all guest and external users
 
 ### CA401-Guests-ComplianceProtection-CombinedRegistration-AnyPlatform-TOU-Require TOU for security info for Guests v1.0
-This is set to **Select users and groups, Guest or external users** with ***Breakglass exclusion***, Target resources **Register security information**, Grant ***TOU***
+This is set to **Select users and groups, Guest or external users** with **<ins>Breakglass exclusion</ins>**, Target resources **Register security information**, Grant **<ins>TOU</ins>**
 
 Select all guest and external users
 
 You must create the Terms Of Use before configuring this policy. You can create a bare bones TOU, install the policy and then flesh out the TOU later if needed
 
 ### CA900-Breakglass-IdentityProtection-AllApps-AnyPlatform-AuthStr-Require Phishing-resistant Authentication for BreakGlass Accounts v1.0
-This is set to ***Breakglass account/group***, Target resources **All resources**, Grant **Require authentication strength, Phishing-resistant MFA**
+This is set to **<ins>Breakglass account/group</ins>**, Target resources **All resources**, Grant **Require authentication strength, Phishing-resistant MFA**
 
 Critical policy, as the Breakglass account/group is exempt from most of the other policies. It is a strong recommendation that Breakglass accounts are an onmicrosoft.com account with no licenses and Global Administrator role. A FIDO2 physical key with a PIN is the recommended authentication method, and ideally you will provision three Breakglass accounts, with one kept onsite in a safe with the login details, two kept offsite at different locations.
 
 ## Privileged Access
 
 ### CA101-Admins-AttackSurfaceReduction-iOS&Android-AllApps-Block-Block iOS & Android access v1.0
-This is set to ***Select users and groups, Directory Roles*** with ***Breakglass exclusion***, Target resources **All resources**, Conditions Device platforms Include **Android, iOS** Exclude  **WindowsPhone, Windows, macOS, Linux**, Grant **Block access**
+This is set to **<ins>Select users and groups, Directory Roles</ins>** with **<ins>Breakglass exclusion</ins>**, Target resources **All resources**, Conditions Device platforms Include **Android, iOS** Exclude  **WindowsPhone, Windows, macOS, Linux**, Grant **Block access**
 
 You will need to select the Directory Roles. I recommend everything Administrator, Editor, Technician, Engineer, Specialist, Creator, Security, Developer, Attribute, Writer, Inviter, Analyst, Author since all of these have some kind of write-access to the environment, or access privileged information
 
 ### CA102-Admins-IdentityProtection-AnyPlatform-AllApps-MFA-Require MFA for Medium & High risk Sign-in v1.0
-This is set to ***Select users and groups, Directory Roles*** with ***Breakglass exclusion***, Target resources **All resources**, Conditions Sign-in risk **High, Medium**, Grant **Require authentication strength, Passwordless MFA**
+This is set to **<ins>Select users and groups, Directory Roles</ins>** with **<ins>Breakglass exclusion</ins>**, Target resources **All resources**, Conditions Sign-in risk **High, Medium**, Grant **Require authentication strength, Passwordless MFA**
 
 CA022 applies similar controls to all users. CA107 extends these controls with Password reset. CA025 blocks High sign-in risk.
 
 ### CA103-Admins-DataProtection-AnyPlatform-AllApps-SessionControl-Non-persistent browser session & 4h frequency v1.0
-This is set to ***Select users and groups, Directory Roles*** with ***Breakglass exclusion***, Target resources **All resources**, Session **Sign-in frequency Periodic reauthentication, 4 hours, Persistent browser session, Never persistent**
+This is set to **<ins>Select users and groups, Directory Roles</ins>** with **<ins>Breakglass exclusion</ins>**, Target resources **All resources**, Session **Sign-in frequency Periodic reauthentication, 4 hours, Persistent browser session, Never persistent**
 
 You will need to select the Directory Roles. I recommend everything Administrator, Editor, Technician, Engineer, Specialist, Creator, Security, Developer, Attribute, Writer, Inviter, Analyst, Author since all of these have some kind of write-access to the environment, or access privileged information
 
 ### CA104-Admins-DataProtection-AdminPortals-Windows&MacOS-Compliance&AuthStr-Require Compliant device & Phishing-resistant Auth for Admin Portals v1.0
-This is set to ***Select users and groups, Directory Roles*** with ***Breakglass exclusion***, Target resources **Microsoft Admin Portals**, Conditions Device platforms Include **Windows, macOS** Exclude  **Android, iOS, WindowsPhone, Linux**, Grant **Require authentication strength, Phishing-resistant MFA, Require device to be marked as compliant** Require all the selected controls
+This is set to **<ins>Select users and groups, Directory Roles</ins>** with **<ins>Breakglass exclusion</ins>**, Target resources **Microsoft Admin Portals**, Conditions Device platforms Include **Windows, macOS** Exclude  **Android, iOS, WindowsPhone, Linux**, Grant **Require authentication strength, Phishing-resistant MFA, Require device to be marked as compliant** Require all the selected controls
 
 You will need to select the Directory Roles. I recommend everything Administrator, Editor, Technician, Engineer, Specialist, Creator, Security, Developer, Attribute, Writer, Inviter, Analyst, Author since all of these have some kind of write-access to the environment, or access privileged information
 
 Policies in Report-only mode requiring compliant devices may prompt users on macOS, iOS, Android, and Linux to select a device certificate.
 
 ### CA105-Admins-IdentityProtection-PIM-AnyPlatform-MFA-Require MFA for PIM elevation v1.0
-This is set to ***Select users and groups, Directory Roles*** with ***Breakglass exclusion***, Target resources **Authentication context, c1**, Grant **Require authentication strength, Phishing-resistant MFA**, Session **Sign-in frequency, Every time**
+This is set to **<ins>Select users and groups, Directory Roles</ins>** with **<ins>Breakglass exclusion</ins>**, Target resources **Authentication context, c1**, Grant **Require authentication strength, Phishing-resistant MFA**, Session **Sign-in frequency, Every time**
 
 You will need to select the Directory Roles. I recommend everything Administrator, Editor, Technician, Engineer, Specialist, Creator, Security, Developer, Attribute, Writer, Inviter, Analyst, Author since all of these have some kind of write-access to the environment, or access privileged information
 
 Only available for creation if PIM is enabled
 
 ### CA106-Admins-AttackSurfaceReduction-O365-AnyPlatform-Block-Block access to Office 365 v1.
-This is set to ***Select users and groups, Directory Roles*** with ***Breakglass exclusion***, Target resources **Office 365**, Grant **Block access**
+This is set to **<ins>Select users and groups, Directory Roles</ins>** with **<ins>Breakglass exclusion</ins>**, Target resources **Office 365**, Grant **Block access**
 
 You will need to select the Directory Roles. I recommend everything Administrator, Editor, Technician, Engineer, Specialist, Creator, Security, Developer, Attribute, Writer, Inviter, Analyst, Author since all of these have some kind of write-access to the environment, or access privileged information
 
 ### CA107-Admins-IdentityProtection-AnyPlatform-AllApps-MFA&PWDreset-Require MFA & Password reset for Medium & High user-risk v1.0
-This is set to ***Select users and groups, Directory Roles*** with ***Breakglass exclusion***, Target resources **All resources**, Conditions User risk **High, Medium**, Grant **Require authentication strength, Passwordless MFA, Require password change** Require all the selected controls
+This is set to **<ins>Select users and groups, Directory Roles</ins>** with **<ins>Breakglass exclusion</ins>**, Target resources **All resources**, Conditions User risk **High, Medium**, Grant **Require authentication strength, Passwordless MFA, Require password change** Require all the selected controls
 
 You will need to select the Directory Roles. I recommend everything Administrator, Editor, Technician, Engineer, Specialist, Creator, Security, Developer, Attribute, Writer, Inviter, Analyst, Author since all of these have some kind of write-access to the environment, or access privileged information
 
@@ -216,7 +216,7 @@ TBD
 ### CA020-Global-AttackSurfaceReduction-AllApps-AnyPlatform-Block-Block Device code flow v1.0
 TBD
 
-### CA021-Global-IdentityProtection-AllApps-AnyPlatform-MFA\u0026PWDreset-Require Password reset and MFA for High user risk v1.0
+### CA021-Global-IdentityProtection-AllApps-AnyPlatform-MFA&PWDreset-Require Password reset and MFA for High user risk v1.0
 TBD
 
 ### CA022-Global-IdentityProtection-AllApps-AnyPlatform-MFA-Require MFA for Medium & High sign-in risk v1.0
@@ -224,11 +224,13 @@ TBD
 
 CA102 applies similar controls to admins. CA107 extends these controls with Password reset. CA025 blocks High sign-in risk.
 
-### CA023-Global-IdentityProtection-AllApps-AnyPlatform-MFA-Require MFA for Low \u0026 Medium user risk v1.0
+### CA023-Global-IdentityProtection-AllApps-AnyPlatform-MFA-Require MFA for Low & Medium user risk v1.0
 TBD
 
 ### CA024-Global-ComplianceProtection-AllApps-AnyPlatform-TOU-Require TOU acceptance for Minor insider risk v1.0
 TBD
+
+You must create the Terms Of Use before configuring this policy. You can create a bare bones TOU, install the policy and then flesh out the TOU later if needed
 
 ### CA025-Global-IdentityProtection-AllApps-AnyPlatform-Block-Block High sign-in risk v1.0
 TBD
