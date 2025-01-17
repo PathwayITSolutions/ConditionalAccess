@@ -85,17 +85,17 @@ Critical policy, as the Breakglass account/group is exempt from most of the othe
 
 ## Privileged Access
 
-### CA101-Admins-AttackSurfaceReduction-iOS&Android-AllApps-Block-Block iOS & Android access v1.0
+### CA101-Admins-AttackSurfaceReduction-AllApps-iOS&Android-Block-Block iOS & Android access v1.0
 This is set to **<ins>Select users and groups, Directory Roles</ins>** with **<ins>Breakglass exclusion</ins>**, Target resources **All resources**, Conditions Device platforms Include **Android, iOS** Exclude  **WindowsPhone, Windows, macOS, Linux**, Grant **Block access**
 
 You will need to select the Directory Roles. I recommend everything Administrator, Editor, Technician, Engineer, Specialist, Creator, Security, Developer, Attribute, Writer, Inviter, Analyst, Author since all of these have some kind of write-access to the environment, or access privileged information
 
-### CA102-Admins-IdentityProtection-AnyPlatform-AllApps-MFA-Require MFA for Medium & High risk Sign-in v1.0
+### CA102-Admins-IdentityProtection-AllApps-AnyPlatform-MFA-Require MFA for Medium & High risk Sign-in v1.0
 This is set to **<ins>Select users and groups, Directory Roles</ins>** with **<ins>Breakglass exclusion</ins>**, Target resources **All resources**, Conditions Sign-in risk **High, Medium**, Grant **Require authentication strength, Passwordless MFA**
 
 CA022 applies similar controls to all users. CA107 extends these controls with Password reset. CA025 blocks High sign-in risk.
 
-### CA103-Admins-DataProtection-AnyPlatform-AllApps-SessionControl-Non-persistent browser session & 4h frequency v1.0
+### CA103-Admins-DataProtection-AllApps-AnyPlatform-SessionControl-Non-persistent browser session & 4h frequency v1.0
 This is set to **<ins>Select users and groups, Directory Roles</ins>** with **<ins>Breakglass exclusion</ins>**, Target resources **All resources**, Session **Sign-in frequency Periodic reauthentication, 4 hours, Persistent browser session, Never persistent**
 
 You will need to select the Directory Roles. I recommend everything Administrator, Editor, Technician, Engineer, Specialist, Creator, Security, Developer, Attribute, Writer, Inviter, Analyst, Author since all of these have some kind of write-access to the environment, or access privileged information
@@ -119,7 +119,7 @@ This is set to **<ins>Select users and groups, Directory Roles</ins>** with **<i
 
 You will need to select the Directory Roles. I recommend everything Administrator, Editor, Technician, Engineer, Specialist, Creator, Security, Developer, Attribute, Writer, Inviter, Analyst, Author since all of these have some kind of write-access to the environment, or access privileged information
 
-### CA107-Admins-IdentityProtection-AnyPlatform-AllApps-MFA&PWDreset-Require MFA & Password reset for Medium & High user-risk v1.0
+### CA107-Admins-IdentityProtection-AllApps-AnyPlatform-MFA&PWDreset-Require MFA & Password reset for Medium & High user-risk v1.0
 This is set to **<ins>Select users and groups, Directory Roles</ins>** with **<ins>Breakglass exclusion</ins>**, Target resources **All resources**, Conditions User risk **High, Medium**, Grant **Require authentication strength, Passwordless MFA, Require password change** Require all the selected controls
 
 You will need to select the Directory Roles. I recommend everything Administrator, Editor, Technician, Engineer, Specialist, Creator, Security, Developer, Attribute, Writer, Inviter, Analyst, Author since all of these have some kind of write-access to the environment, or access privileged information
@@ -141,7 +141,7 @@ TBD
 ### CA504-GuestAdmins-ComplianceProtection-CombinedRegistration-AnyPlatform-TOU-Require TOU for security info for Guest Admins v1.0
 TBD
 
-### CA505-GuestAdmins-DataProtection-AnyPlatform-AllApps-SessionControl-Non-persistent browser session & 1h frequency v1.0
+### CA505-GuestAdmins-DataProtection-AllApps-AnyPlatform-SessionControl-Non-persistent browser session & 1h frequency v1.0
 TBD
 
 ## Application Policies
