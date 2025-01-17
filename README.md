@@ -127,22 +127,36 @@ You will need to select the Directory Roles. I recommend everything Administrato
 CA022 applies similar controls to all users. CA102 mirrors these controls without Password reset. CA025 blocks High sign-in risk.
 
 ### CA500-GuestAdmins-AttackSurfaceReduction-O365-AnyPlatform-Block-Block access to Office 365 v1.0
-TBD
+This is set to **<ins>Select users and groups, GuestAdmins group</ins>** with **<ins>Breakglass exclusion</ins>**, Target resources **O365**, Grant **Block access**
+
+GuestAdmins is a defined group, these policies are only for when you want to apply different rules to external Admins than internal Admins with the same role. To do this you need to edit CA100-CA107 and specify defined Admin groups rather than use Roles.
 
 ### CA501-GuestAdmins-IdentityProtection-PIMelevation-AnyPlatform-MFA-Require MFA for PIM elevation v1.0
-TBD
+This is set to **<ins>Select users and groups, GuestAdmins group</ins>** with **<ins>Breakglass exclusion</ins>**, Target resources **PIM**, Grant **Require authentication strength, Multifactor authentication**
+
+GuestAdmins is a defined group, these policies are only for when you want to apply different rules to external Admins than internal Admins with the same role. To do this you need to edit CA100-CA107 and specify defined Admin groups rather than use Roles.
 
 ### CA502-GuestAdmins-IdentityProtection-AllApps-AnyPlatform-MFA&PWDreset-Require MFA & Password Reset for Medium & High user-risk Guest admins v1.0
-TBD
+This is set to **<ins>Select users and groups, GuestAdmins group</ins>** with **<ins>Breakglass exclusion</ins>**, Target resources **All resources**,Conditions User risk **High, Medium**, Grant **Require authentication strength, Multifactor authentication, Require password change**
+
+GuestAdmins is a defined group, these policies are only for when you want to apply different rules to external Admins than internal Admins with the same role. To do this you need to edit CA100-CA107 and specify defined Admin groups rather than use Roles.
 
 ### CA503-GuestAdmins-IdentityProtection-AllApps-AnyPlatform-MFA-Require MFA for Low+ sign-in risk for guest admins v1.0
-TBD
+This is set to **<ins>Select users and groups, GuestAdmins group</ins>** with **<ins>Breakglass exclusion</ins>**, Target resources **All resources**, Conditions Sign-in risk **High, Medium, Low**, Grant **Require authentication strength, Multifactor authentication**
+
+GuestAdmins is a defined group, these policies are only for when you want to apply different rules to external Admins than internal Admins with the same role. To do this you need to edit CA100-CA107 and specify defined Admin groups rather than use Roles.
 
 ### CA504-GuestAdmins-ComplianceProtection-CombinedRegistration-AnyPlatform-TOU-Require TOU for security info for Guest Admins v1.0
-TBD
+This is set to **<ins>Select users and groups, GuestAdmins group</ins>** with **<ins>Breakglass exclusion</ins>**, Target resources **Security registration**, Grant **<ins>TOU</ins>**
+
+GuestAdmins is a defined group, these policies are only for when you want to apply different rules to external Admins than internal Admins with the same role. To do this you need to edit CA100-CA107 and specify defined Admin groups rather than use Roles.
+
+You must create the Terms Of Use before configuring this policy. You can create a bare bones TOU, install the policy and then flesh out the TOU later if needed
 
 ### CA505-GuestAdmins-DataProtection-AllApps-AnyPlatform-SessionControl-Non-persistent browser session & 1h frequency v1.0
-TBD
+This is set to **<ins>Select users and groups, GuestAdmins group</ins>** with **<ins>Breakglass exclusion</ins>**, Target resources **All resources**, Session **Sign-in frequency Periodic reauthentication, 1 hours, Persistent browser session, Never persistent**
+
+GuestAdmins is a defined group, these policies are only for when you want to apply different rules to external Admins than internal Admins with the same role. To do this you need to edit CA100-CA107 and specify defined Admin groups rather than use Roles.
 
 ## Application Policies
 
