@@ -245,39 +245,57 @@ This is set to **<ins>Workload IDs</ins>** with **<ins>Breakglass</ins>** exclus
 ## Risk-based
 
 ### CA018-Global-DataProtection-AllApps-AnyPlatform-Block-Block Elevated insider risk v1.0
-This is set to **All Users** with **<ins>Breakglass</ins>** exclusion, Target resources **All resources**, 
+This is set to **All Users** with **<ins>Breakglass</ins>** exclusion **<ins>ServiceAccounts</ins>** exclusion, Target resources **All resources**, Conditions Insider Risk level **Elevated**, Grant **Block access**
+
+Blocks all accounts from behavior deemed an Elevated Insider risk. Breakglass and any Service accounts should be exempted as they are not supported for this risk type.
+
+Requires M365 E5 Compliance add-on license.
 
 ### CA019-Global-DataProtection-O365-AnyPlatform-Block-Block business critical apps for Moderate insider risk v1.0
-This is set to **All Users** with **<ins>Breakglass</ins>** exclusion, Target resources **O365**, 
+This is set to **All Users** with **<ins>Breakglass</ins>** exclusion **<ins>ServiceAccounts</ins>** exclusion, Target resources **O365**, Conditions Insider Risk level **Moderate**, Grant **Block access**
+
+Blocks all accounts from behavior deemed a Moderate Insider risk within O365. Breakglass and any Service accounts should be exempted as they are not supported for this risk type.
+
+Requires M365 E5 Compliance add-on license.
 
 ### CA020-Global-AttackSurfaceReduction-AllApps-AnyPlatform-Block-Block Device code flow v1.0
-This is set to **All Users** with **<ins>Breakglass</ins>** exclusion, Target resources **All resources**, 
+This is set to **All Users** with **<ins>Breakglass</ins>** exclusion, Target resources **All resources**, Conditions Authentication Flows **Device Code Flow**, Grant **Block access**
+
+Device code flow authentication, which allows authentication from a different device, is disabled via this policy, this is due to this authentication type being vulnerable to different attacks such as impersonation, especially in phishing.
+
+This policy will require testing for legitimate uses, specifically devices with limited interaction.
 
 ### CA021-Global-IdentityProtection-AllApps-AnyPlatform-MFA&PWDreset-Require Password reset and MFA for High user risk v1.0
-This is set to **All Users** with **<ins>Breakglass</ins>** exclusion, Target resources **All resources**, 
+This is set to **All Users** with **<ins>Breakglass</ins>** exclusion **Guest or external users, All external Azure AD organizations** exclusion **<ins>ServiceAccounts</ins>** exclusion **<ins>Admins</ins>** exclusion, Target resources **All resources**, Grant **Require authentication strength, Multifactor authentication, Require password change** **Require all the selected controls**, Session **Sign-in frequency, Every time**
 
 ### CA022-Global-IdentityProtection-AllApps-AnyPlatform-MFA-Require MFA for Medium & High sign-in risk v1.0
-This is set to **All Users** with **<ins>Breakglass</ins>** exclusion, Target resources **All resources**, 
+This is set to **All Users** with **<ins>Breakglass</ins>** exclusion **<ins>ServiceAccounts</ins>** exclusion **<ins>Admins</ins>** exclusion, Target resources **All resources**, Conditions Sign-in Risk **High, Medium**, Grant **Require authentication strength, Multifactor authentication**, Session **Sign-in frequency, Every time**
 
 CA102 applies similar controls to admins. CA107 extends these controls with Password reset. CA025 blocks High sign-in risk.
 
 ### CA023-Global-IdentityProtection-AllApps-AnyPlatform-MFA-Require MFA for Low & Medium user risk v1.0
-This is set to **All Users** with **<ins>Breakglass</ins>** exclusion, Target resources **All resources**, 
+This is set to **All Users** with **<ins>Breakglass</ins>** exclusion **Guest or external users, All external Azure AD organizations** exclusion **<ins>ServiceAccounts</ins>** exclusion **<ins>Admins</ins>** exclusion, Target resources **All resources**, Conditions User Risk **Medium, Low**, Grant **Require authentication strength, Multifactor authentication**
+
+Enforcing MFA on users with low and medium risk, allows self-remediation for lower-confidence flagging, without inconveniencing the user too much. Even at lower levels, MFA serves as a critical stopgap to prevent unauthorized access.
 
 ### CA024-Global-ComplianceProtection-AllApps-AnyPlatform-TOU-Require TOU acceptance for Minor insider risk v1.0
-This is set to **All Users** with **<ins>Breakglass</ins>** exclusion, Target resources **All resources**, 
+This is set to **All Users** with **<ins>Breakglass</ins>** exclusion **<ins>ServiceAccounts</ins>** exclusion **<ins>Admins</ins>** exclusion, Target resources **All resources**, Conditions Insider Risk level **Minor** Grant **<ins>TOU</ins>**
+
+This policy is based on the presumption that the minor risk stems from unintentional actions and prompts the minor insider risk user to accept the internal Terms of Use (TOU) before granting access. This gently reminds the user of the organization’s compliance standards and expected behavior. This utilizes awareness as a deterrent, subtly reinforcing security culture and ensuring at-risk individuals are conscious of their responsibilities, and actions, which in turn can dissuade negligent or unintentional risky behaviors.
 
 You must create the Terms Of Use before configuring this policy. You can create a bare bones TOU, install the policy and then flesh out the TOU later if needed
 
 ### CA025-Global-IdentityProtection-AllApps-AnyPlatform-Block-Block High sign-in risk v1.0
-This is set to **All Users** with **<ins>Breakglass</ins>** exclusion, Target resources **All resources**, 
+This is set to **All Users** with **<ins>Breakglass</ins>** exclusion, Target resources **All resources**, Conditions Sign-in risk **High**, Grant **Block access**
 
 CA102 applies MFA controls to admins. CA107 extends these controls with Password reset. CA022 requires MFA for Medium & High sign-in risk.
 
 ### CA026-Global-IdentityProtection-AllApps-AnyPlatform-Block-Block High user risk v1.0
-This is set to **All Users** with **<ins>Breakglass</ins>** exclusion, Target resources **All resources**, 
+This is set to **All Users** with **<ins>Breakglass</ins>** exclusion, Target resources **All resources**, Conditions User risk **High**, Grant **Block access**
+
+CA102 applies MFA controls to admins. CA107 extends these controls with Password reset. CA022 requires MFA for Medium & High sign-in risk.
 
 ### CA806-Finance-AttackSurfaceReduction-AllApps-AnyPlatform-Block-Block Authentication Transfer for Finance v1.0
-This is set to **<ins>Finance group</ins>** with **<ins>Breakglass</ins>** exclusion, Target resources **All resources**, 
+This is set to **<ins>Finance group</ins>** with **<ins>Breakglass</ins>** exclusion, Target resources **All resources**, Conditions Authentication Flows **Authentication Transfer**, Grant **Block access**
 
 You will need to define the Finance group.
