@@ -1,4 +1,4 @@
-needed# ConditionalAccess
+# ConditionalAccess
 CA Policies that conform to the MS naming convention found https://learn.microsoft.com/en-us/azure/architecture/guide/security/conditional-access-framework
 
 These were created to assist in standardizing Conditional Access policies in the same way that GPMC templates have for Active Directory
