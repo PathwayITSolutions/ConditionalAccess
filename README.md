@@ -216,31 +216,49 @@ You will need to define the Marketing group, the Target resources and the Sessio
 ## Non-human identities
 
 ### CA800-ServiceAccounts-DataProtection-AllApps-AnyPlatform-Compliance-Require compliant device for untrusted networks for Service Accounts v1.0
-This is set to **<ins>Service Accounts</ins>** with **<ins>Breakglass</ins>** exclusion, 
+This is set to **<ins>Service Accounts</ins>** with **<ins>Breakglass</ins>** exclusion, Locations Include **All** Exclude **All Trusted**, Target resources **All**, Grant **Grant access, Compliant device**
+
+This policy requires Compliant devices for Service Accounts when on an untrusted network. For added security, removing the Exclude All Trusted would ensure that every device a Service Account is using has to be a Compliant device, however that adds to the complexity required in device compliancy.
 
 ### CA801-ServiceAccounts-AttackSurfaceReduction-AllApps-AnyPlatform-Block-Block untrusted locations v1.0
-This is set to **<ins>Service Accounts</ins>** with **<ins>Breakglass</ins>** exclusion, 
+This is set to **<ins>Service Accounts</ins>** with **<ins>Breakglass</ins>** exclusion, Locations Include **All** Exclude **All Trusted**, Target resources **All**, Grant **Block access**
+
+This policy prevents Service Accounts from accessing resources from untrusted locations.
 
 ### CA802-ServiceAccounts-DataProtection-AllApps-AnyPlatform-Block-Enforce CAE strict location v1.0
-This is set to **<ins>Service Accounts</ins>** with **<ins>Breakglass</ins>** exclusion, 
+This is set to **<ins>Service Accounts</ins>** with **<ins>Breakglass</ins>** exclusion, Locations Include **All** Exclude **All Trusted**, Target resources **All**, Grant **Block access**, Session **Continuous access evaluation, Strictly enforce location policies**
+
+Protects against location-based attacks by ensuring Service Accounts are only accessible from trusted locations, enforcing continuous access evaluations for real-time security.
 
 ### CA803-ServiceAccounts-IdentityProtection-AllApps-AnyPlatform-Block-Block Medium & High user risk v1.0
-This is set to **<ins>Service Accounts</ins>** with **<ins>Breakglass</ins>** exclusion, 
+This is set to **<ins>Service Accounts</ins>** with **<ins>Breakglass</ins>** exclusion, User risk **High, Medium**, Target resources **All**, Grant **Block access**
+
+This policy blocks Risky user behavior from Service Accounts.
 
 ### CA804-ServiceAccounts-IdentityProtection-AllApps-AnyPlatform-Block-Block Medium & High sign-in risk v1.0
-This is set to **<ins>Service Accounts</ins>** with **<ins>Breakglass</ins>** exclusion, 
+This is set to **<ins>Service Accounts</ins>** with **<ins>Breakglass</ins>** exclusion, Sign-in Risk **High, Medium**, Target resources **All**, Grant **Block access**
+
+This policy blocks Risky sign-in behavior from Service Accounts.
 
 ### CA805-ServiceAccounts-AttackSurfaceReduction-AllAppsExcludedMSFT-AnyPlatform-Block-Block unneeded applications v1.0
-This is set to **<ins>Service Accounts</ins>** with **<ins>Breakglass</ins>** exclusion, 
+This is set to **<ins>Service Accounts</ins>** with **<ins>Breakglass</ins>** exclusion, Target resources **All** with **Microsoft Admin Portals** exclustion **Windows Azure Service Management API** exclusion, Grant **Block access**
+
+This policy blocks access to all areas that a Service Account has no need to touch. It can be reconfigured depending on need.
 
 ### CA902-WorkloadIDs-AttackSurfaceReduction-AllApps-AnyPlatform-Block-Block untrusted locations v1.0
-This is set to **<ins>Workload IDs</ins>** with **<ins>Breakglass</ins>** exclusion, 
+This is set to **<ins>Workload IDs</ins>** with **<ins>Breakglass</ins>** exclusion, Locations Include **All** Exclude **All Trusted**, Target resources **All**, Grant **Block access**
+
+This policy prevents Workload IDs from accessing resources from untrusted locations.
 
 ### CA903-WorkloadIDs-IdentityProtection-AllApps-AnyPlatform-Block-Block Medium & High user risk v1.0
-This is set to **<ins>Workload IDs</ins>** with **<ins>Breakglass</ins>** exclusion, 
+This is set to **<ins>Workload IDs</ins>** with **<ins>Breakglass</ins>** exclusion, Service Principal Risk **High, Medium**, Grant **Block access**
+
+Protects against compromised workload identities by blocking access for accounts that show signs of risky behavior, reducing potential breaches. Risk is calcuated using Microsofts algorithm, which you should be familiar with before enabling this policy.
 
 ### CA904-WorkloadIDs-DataProtection-AllApps-AnyPlatform-Block-Enforce CAE strict location v1.0
-This is set to **<ins>Workload IDs</ins>** with **<ins>Breakglass</ins>** exclusion, 
+This is set to **<ins>Workload IDs</ins>** with **<ins>Breakglass</ins>** exclusion, Locations Include **All** Exclude **All Trusted**, Target resources **All**, Grant **Block access**, Session **Continuous access evaluation, Strictly enforce location policies**
+
+Protects against location-based attacks by ensuring workload identities are only accessible from trusted locations, enforcing continuous access evaluations for real-time security.
 
 ## Risk-based
 
