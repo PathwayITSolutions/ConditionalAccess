@@ -36,12 +36,12 @@ This is set to **<ins>All Users group</ins>** with **<ins>Breakglass</ins>** exc
 The Approved access countries and Blocked access countries lists need to be created in Microsoft Entra Named Locations before making this policy
 
 ### CA003-Global-DataProtection-AllApps-AnyPlatform-SessionControl-8H session lifetime for managed devices v1.0
-This is set to **All Users** with no exclusions, Target resources **All resources**, Conditions Filter for devices Include filtered devices **device.deviceOwnership -eq "Company**, Grant **Sign-in frequency Periodic reauthentication 8 hours**
+This is set to **All Users** with no exclusions, Target resources **All resources**, Conditions Filter for devices Include filtered devices **device.trustType -eq "AzureAD" -or device.trustType -eq "ServerAD" -or device.trustType -eq "Workplace"**, Grant **Sign-in frequency Periodic reauthentication 8 hours**
 
 It is meant to be run without the Breakglass exception.
 
 ### CA004-Global-DataProtection-AllApps-AnyPlatform-SessionControl-3H session lifetime for unmanaged devices v1.0
-This is set to **All Users** with no exclusions, Target resources **All resources**, Conditions Filter for devices Exclude filtered devices **device.deviceOwnership -eq "Company**, Grant **Sign-in frequency Periodic reauthentication 3 hours**
+This is set to **All Users** with no exclusions, Target resources **All resources**, Conditions Filter for devices Exclude filtered devices **device.trustType -eq "AzureAD" -or device.trustType -eq "ServerAD" -or device.trustType -eq "Workplace"**, Grant **Sign-in frequency Periodic reauthentication 3 hours**
 
 It is meant to be run without the Breakglass exception.
 
@@ -53,8 +53,8 @@ It is meant to be run without the Breakglass exception.
 ### CA006-Global-DeviceProtection-AllApps-WindowsPhone-Block-Block Unknown platforms v1.0
 This is set to **All Users** with **<ins>Breakglass</ins>** exclusion, Target resources **All resources**, Conditions Device platforms Include **Windows Phone** Exclude  **Android, iOS, Windows, macOS, Linux**, Grant **Block access**
 
-### CA007-Global-Data&AppProtection-O365-iOS&Android-APP-Require App Protection Policy v1.0
-This is set to **All Users** with **<ins>Breakglass</ins>** exclusion, Target resources **Select resources, Office 365**, Conditions Device platforms Include **Android, iOS** Exclude  **WindowsPhone, Windows, macOS, Linux**, Grant **Require app protection policy**
+### CA007-Global-Data&AppProtection-AllApps-iOS&Android-APP-Require App Protection Policy v1.0
+This is set to **All Users** with **<ins>Breakglass</ins>** exclusion, Target resources **All resources**, Conditions Device platforms Include **Android, iOS** Exclude  **WindowsPhone, Windows, macOS, Linux**, Grant **Require app protection policy**
 
 Policies in Report-only mode requiring compliant devices may prompt users on macOS, iOS, Android, and Linux to select a device certificate.
 
