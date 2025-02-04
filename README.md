@@ -54,7 +54,7 @@ It is meant to be run without the Breakglass exception.
 This is set to **All Users** with **<ins>Breakglass</ins>** exclusion, Target resources **All resources**, Conditions Device platforms Include **Windows Phone** Exclude  **Android, iOS, Windows, macOS, Linux**, Grant **Block access**
 
 ### CA007-Global-Data&AppProtection-AllApps-iOS&Android-APP-Require App Protection Policy v1.0
-This is set to **All Users** with **<ins>Breakglass</ins>** exclusion, Target resources **All resources**, Conditions Device platforms Include **Android, iOS** Exclude  **WindowsPhone, Windows, macOS, Linux**, Grant **Require app protection policy**
+This is set to **All Users** with **<ins>Breakglass</ins>** exclusion, Target resources **All resources** with Intune and Intune Enrollment exclusion, Conditions Device platforms Include **Android, iOS** Exclude  **WindowsPhone, Windows, macOS, Linux**, Grant **Require app protection policy**
 
 Policies in Report-only mode requiring compliant devices may prompt users on macOS, iOS, Android, and Linux to select a device certificate.
 
