@@ -59,7 +59,7 @@ This is set to **All Users** with **<ins>Breakglass</ins>** exclusion, Target re
 Policies in Report-only mode requiring compliant devices may prompt users on macOS, iOS, Android, and Linux to select a device certificate.
 
 ### CA008-Global-DataProtection-AllApps-iOS&Android-Compliance-Require Compliance policy v1.0
-This is set to **All Users** with **<ins>Breakglass</ins>** exclusion, Target resources **Select resources, Office 365**, Conditions Device platforms Include **Android, iOS** Exclude  **WindowsPhone, Windows, macOS, Linux**, Grant **Require device to be marked as compliant**
+This is set to **All Users** with **<ins>Breakglass</ins>** exclusion, Target resources **All resources** with Intune and Intune Enrollment exclusion, Conditions Device platforms Include **Android, iOS** Exclude  **WindowsPhone, Windows, macOS, Linux**, Grant **Require device to be marked as compliant**
 
 ### CA100-Admins-IdentityProtection-AllApps-AnyPlatform-AuthStr-Require Phishing-Resistant MFA for Admin roles v1.0
 This is set to **<ins>Select users and groups, Directory Roles</ins>** with **<ins>Breakglass</ins>** exclusion, Target resources **All resources**, Grant **Require authentication strength, Phishing-resistant MFA**
