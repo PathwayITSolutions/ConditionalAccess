@@ -112,7 +112,7 @@ This is set to **<ins>Select users and groups, Directory Roles</ins>** with **<i
 
 You will need to select the Directory Roles. I recommend everything Administrator, Editor, Technician, Engineer, Specialist, Creator, Security, Developer, Attribute, Writer, Inviter, Analyst, Author since all of these have some kind of write-access to the environment, or access privileged information
 
-Only available for creation if PIM is enabled
+Only available for creation if PIM is enabled, and you have created an Authentication Context.
 
 ### CA106-Admins-AttackSurfaceReduction-O365-AnyPlatform-Block-Block access to Office 365 v1.
 This is set to **<ins>Select users and groups, Directory Roles</ins>** with **<ins>Breakglass</ins>** exclusion, Target resources **Office 365**, Grant **Block access**
@@ -135,6 +135,8 @@ GuestAdmins is a defined group, these policies are only for when you want to app
 This is set to **<ins>Select users and groups, GuestAdmins group</ins>** with **<ins>Breakglass</ins>** exclusion, Target resources **PIM**, Grant **Require authentication strength, Multifactor authentication**
 
 GuestAdmins is a defined group, these policies are only for when you want to apply different rules to external Admins than internal Admins with the same role. To do this you need to edit CA100-CA107 and specify defined Admin groups rather than use Roles.
+
+Only available for creation if PIM is enabled, and you have created an Authentication Context.
 
 ### CA502-GuestAdmins-IdentityProtection-AllApps-AnyPlatform-MFA&PWDreset-Require MFA & Password Reset for Medium & High user-risk Guest admins v1.0
 This is set to **<ins>Select users and groups, GuestAdmins group</ins>** with **<ins>Breakglass</ins>** exclusion, Target resources **All resources**,Conditions User risk **High, Medium**, Grant **Require authentication strength, Multifactor authentication, Require password change**
