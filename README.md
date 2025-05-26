@@ -28,8 +28,9 @@ Users:
     Include: **All Users**
 
     Exclude: None
-    
+
 Target resources:
+
     Resources (formerly cloud apps):
         Include: **All resources**
         Exclude: None
