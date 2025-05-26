@@ -43,281 +43,400 @@ Default Settings are **in bold**. Settings you need to customize are **<ins>unde
 It is meant to be run without the Breakglass exception.
 
 ### CA001-Global-BaselineProtection-AllApps-AnyPlatform-MFA-Require MFA for all users v1.0
-Users:  
-    Include: **All Users**  
-    Exclude: **<ins>Breakglass</ins>**  
-Target resources:  
-    Resources (formerly cloud apps):  
-        Include: **All resources**  
-        Exclude: **Microsoft Intune**, **Microsoft Intune Enrollment**  
-Network: No  
-Conditions:  
-    Device Platforms:  
-    Locations:  
-    Client apps:  
-    Filter for devices:  
-    Authentication flows:  
-Grant: **Grant access**, **Require authentication strength, Multifactor authentication strength**  
-Session:  
+* Users:  
+  - Include: **All Users**  
+  - Exclude: **<ins>Breakglass</ins>**  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **All resources**  
+    - Exclude: **Microsoft Intune**, **Microsoft Intune Enrollment**  
+* Network: No  
+* Conditions:  
+  - Device Platforms:  
+  - Locations:  
+  - Client apps:  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant: **Grant access**, **Require authentication strength, Multifactor authentication strength**  
+* Session:  
 
 ### CA002-Global-AttackSurfaceReduction-AllApps-AnyPlatform-Block-Block non-business countries v1.0
-Users:  
-    Include: **All Users**  
-    Exclude: **<ins>Breakglass</ins>**  
-Target resources:  
-    Resources (formerly cloud apps):  
-        Include: **All resources**  
-        Exclude:  
-Network: Yes  
-    Include: **<ins>Blocked access countries</ins>**  
-    Exclude: **<ins>Approved access countries</ins>**  
-Conditions:  
-    Device Platforms:  
-    Locations:  
-    Client apps:  
-    Filter for devices:  
-    Authentication flows:  
-Grant: **Block access**  
-Session:  
+* Users:  
+  - Include: **All Users**  
+  - Exclude: **<ins>Breakglass</ins>**  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **All resources**  
+    - Exclude:  
+* Network: Yes  
+  - Include: **<ins>Blocked access countries</ins>**  
+  - Exclude: **<ins>Approved access countries</ins>**  
+* Conditions:  
+  - Device Platforms:  
+  - Locations:  
+  - Client apps:  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant: **Block access**  
+* Session:  
 
 The Approved access countries and Blocked access countries lists need to be created in Microsoft Entra Named Locations before making this policy
 
 ### CA003-Global-DataProtection-AllApps-AnyPlatform-SessionControl-8H session lifetime for managed devices v1.0
-Users:  
-    Include: **All Users**  
-    Exclude: None  
-Target resources:  
-    Resources (formerly cloud apps):  
-        Include: **All resources**  
-        Exclude: None  
-Network: No  
-Conditions:  
-    Device Platforms:  
-    Locations:  
-    Client apps:   
-    Filter for devices: Yes  
-        Include: **device.trustType -eq "AzureAD" -or device.trustType -eq "ServerAD" -or device.trustType -eq "Workplace"**  
-    Authentication flows:  
-Grant: **Grant access**, **Sign-in frequency Periodic reauthentication 8 hours**  
-Session:  
+* Users:  
+  - Include: **All Users**  
+  - Exclude: None  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **All resources**  
+    - Exclude: None  
+* Network: No  
+* Conditions:  
+  - Device Platforms:  
+  - Locations:  
+  - Client apps:   
+  - Filter for devices: Yes  
+    - Include: **device.trustType -eq "AzureAD" -or device.trustType -eq "ServerAD" -or device.trustType -eq "Workplace"**  
+  - Authentication flows:  
+* Grant: **Grant access**, **Sign-in frequency Periodic reauthentication 8 hours**  
+* Session:  
 
 It is meant to be run without the Breakglass exception.
 
 ### CA004-Global-DataProtection-AllApps-AnyPlatform-SessionControl-3H session lifetime for unmanaged devices v1.0
-Users:  
-    Include: **All Users**  
-    Exclude: None  
-Target resources:  
-    Resources (formerly cloud apps):  
-        Include: **All resources**  
-        Exclude: None  
-Network: No  
-Conditions:  
-    Device Platforms:  
-    Locations:  
-    Client apps:  
-    Filter for devices: Yes  
-        Include:  
-        Exclude: **device.trustType -eq "AzureAD" -or device.trustType -eq "ServerAD" -or device.trustType -eq "Workplace"**  
-    Authentication flows:  
-Grant: **Grant access**, **Sign-in frequency Periodic reauthentication 3 hours**  
-Session:  
+* Users:  
+  - Include: **All Users**  
+  - Exclude: None  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **All resources**  
+    - Exclude: None  
+* Network: No  
+* Conditions:  
+  - Device Platforms:  
+  - Locations:  
+  - Client apps:  
+  - Filter for devices: Yes  
+    - Include:  
+    - Exclude: **device.trustType -eq "AzureAD" -or device.trustType -eq "ServerAD" -or device.trustType -eq "Workplace"**  
+  - Authentication flows:  
+* Grant: **Grant access**, **Sign-in frequency Periodic reauthentication 3 hours**  
+* Session:  
 
 It is meant to be run without the Breakglass exception.
 
 ### CA005-Global-BaselineProtection-CombinedRegistration-AnyPlatform-MFA-Require MFA for registering security info v1.0
-Users:  
-    Include: **All Users**  
-    Exclude: **<ins>Guest or external users</ins>**  
-Target resources:  
-    User actions: **Register security information**  
-Network: No  
-Conditions:  
-    Device Platforms:  
-    Locations:  
-    Client apps:  
-    Filter for devices:  
-    Authentication flows:  
-Grant: **Grant access**, **Require authentication strength, Multifactor authentication**  
-Session:  
+* Users:  
+  - Include: **All Users**  
+  - Exclude: **<ins>Guest or external users</ins>**  
+* Target resources:  
+  - User actions: **Register security information**  
+* Network: No  
+* Conditions:  
+  - Device Platforms:  
+  - Locations:  
+  - Client apps:  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant: **Grant access**, **Require authentication strength, Multifactor authentication**  
+* Session:  
 
 It is meant to be run without the Breakglass exception.
 
 ### CA006-Global-DeviceProtection-AllApps-WindowsPhone-Block-Block Unknown platforms v1.0
-Users:  
-    Include: **All Users**  
-    Exclude: **<ins>Breakglass</ins>**  
-Target resources:  
-    Resources (formerly cloud apps):  
-        Include: **All resources**  
-        Exclude: None  
-Network: No  
-Conditions:  
-    Device Platforms: Yes  
-        Include: **Windows Phone**  
-        Exclude: **Android, iOS, Windows, macOS, Linux**  
-    Locations:  
-    Client apps:  
-    Filter for devices:  
-    Authentication flows:  
-Grant: **Block access**  
-Session:  
+* Users:  
+  - Include: **All Users**  
+  - Exclude: **<ins>Breakglass</ins>**  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **All resources**  
+    - Exclude: None  
+* Network: No  
+* Conditions:  
+  - Device Platforms: Yes  
+    - Include: **Windows Phone**  
+    - Exclude: **Android, iOS, Windows, macOS, Linux**  
+  - Locations:  
+  - Client apps:  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant: **Block access**  
+* Session:  
 
 ### CA007-Global-Data&AppProtection-AllApps-iOS&Android-APP-Require App Protection Policy v1.0
-Users:  
-    Include: **All Users**  
-    Exclude: **<ins>Breakglass</ins>**  
-Target resources:  
-    Resources (formerly cloud apps):  
-        Include: **All resources**  
-        Exclude: **Microsoft Intune**, **Microsoft Intune Enrollment**  
-Network: No  
-Conditions:  
-    Device Platforms: Yes  
-        Include: **Android, iOS**  
-        Exclude: **WindowsPhone, Windows, macOS, Linux**  
-    Locations:  
-    Client apps:  
-    Filter for devices:  
-    Authentication flows:  
-Grant: **Grant access**, **Require app protection policy**  
-Session:  
+* Users:  
+  - Include: **All Users**  
+  - Exclude: **<ins>Breakglass</ins>**  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **All resources**  
+    - Exclude: **Microsoft Intune**, **Microsoft Intune Enrollment**  
+* Network: No  
+* Conditions:  
+  - Device Platforms: Yes  
+    - Include: **Android, iOS**  
+    - Exclude: **WindowsPhone, Windows, macOS, Linux**  
+  - Locations:  
+  - Client apps:  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant: **Grant access**, **Require app protection policy**  
+* Session:  
 
 Policies in Report-only mode requiring compliant devices may prompt users on macOS, iOS, Android, and Linux to select a device certificate.
 
 ### CA008-Global-DataProtection-AllApps-iOS&Android-Compliance-Require Compliance policy v1.0
-Users:  
-    Include: **All Users**  
-    Exclude: **<ins>Breakglass</ins>**  
-Target resources:  
-    Resources (formerly cloud apps):  
-        Include: **All resources**  
-        Exclude: **Microsoft Intune**, **Microsoft Intune Enrollment**  
-Network: No  
-Conditions:  
-    Device Platforms: Yes  
-        Include: **Android, iOS**  
-        Exclude: **WindowsPhone, Windows, macOS, Linux**  
-    Locations:  
-    Client apps:  
-    Filter for devices:  
-    Authentication flows:  
-Grant: **Grant access**, **Require device to be marked as compliant**  
-Session:  
+* Users:  
+  - Include: **All Users**  
+  - Exclude: **<ins>Breakglass</ins>**  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **All resources**  
+    - Exclude: **Microsoft Intune**, **Microsoft Intune Enrollment**  
+* Network: No  
+* Conditions:  
+  - Device Platforms: Yes  
+    - Include: **Android, iOS**  
+    - Exclude: **WindowsPhone, Windows, macOS, Linux**  
+  - Locations:  
+  - Client apps:  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant: **Grant access**, **Require device to be marked as compliant**  
+* Session:  
 
 ### CA100-Admins-IdentityProtection-AllApps-AnyPlatform-AuthStr-Require Phishing-Resistant MFA for Admin roles v1.0
-Users:  
-    Include: **<ins>Select users and groups, Directory Roles</ins>**  
-    Exclude: **<ins>Breakglass</ins>**  
-Target resources:  
-    Resources (formerly cloud apps):  
-        Include: **All resources**  
-        Exclude:  
-Network: No  
-Conditions:  
-    Device Platforms:  
-    Locations:  
-    Client apps:  
-    Filter for devices:  
-    Authentication flows:  
-Grant: **Grant access**, **Require authentication strength, Phishing-resistant MFA**  
-Session:  
+* Users:  
+  - Include: **<ins>Select users and groups, Directory Roles</ins>**  
+  - Exclude: **<ins>Breakglass</ins>**  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **All resources**  
+    - Exclude:  
+* Network: No  
+* Conditions:  
+  - Device Platforms:  
+  - Locations:  
+  - Client apps:  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant: **Grant access**, **Require authentication strength, Phishing-resistant MFA**  
+* Session:  
 
 You will need to select the Directory Roles. I recommend everything Administrator, Editor, Technician, Engineer, Specialist, Creator, Security, Developer, Attribute, Writer, Inviter, Analyst, Author since all of these have some kind of write-access to the environment, or access privileged information
 
 ### CA400-Guests-BaselineProtection-AllApps-AnyPlatform-MFA-Require MFA for all guest users v1.0
-Users:  
-    Include: **Select users and groups, Guest or external users**  
-    Exclude: **<ins>Breakglass</ins>**  
-Target resources:  
-    Resources (formerly cloud apps):  
-        Include: **All resources**  
-        Exclude:  
-Network: No  
-Conditions:  
-    Device Platforms:  
-    Locations:  
-    Client apps:  
-    Filter for devices:  
-    Authentication flows:  
-Grant: **Grant access**, **Require authentication strength, Multifactor authentication**  
-Session:  
+* Users:  
+  - Include: **Select users and groups, Guest or external users**  
+  - Exclude: **<ins>Breakglass</ins>**  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **All resources**  
+    - Exclude:  
+* Network: No  
+* Conditions:  
+  - Device Platforms:  
+  - Locations:  
+  - Client apps:  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant: **Grant access**, **Require authentication strength, Multifactor authentication**  
+* Session:  
 
 Select all guest and external users
 
 ### CA401-Guests-ComplianceProtection-CombinedRegistration-AnyPlatform-TOU-Require TOU for security info for Guests v1.0
-Users:  
-    Include: **Select users and groups, Guest or external users**  
-    Exclude: **<ins>Breakglass</ins>**  
-Target resources:  
-    User actions: **Register security information**   
-Network: No  
-Conditions:  
-    Device Platforms:  
-    Locations:  
-    Client apps:  
-    Filter for devices:  
-    Authentication flows:  
-Grant: **Grant access**, **<ins>TOU</ins>**  
-Session:  
+* Users:  
+  - Include: **Select users and groups, Guest or external users**  
+  - Exclude: **<ins>Breakglass</ins>**  
+* Target resources:  
+  - User actions: **Register security information**   
+* Network: No  
+* Conditions:  
+  - Device Platforms:  
+  - Locations:  
+  - Client apps:  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant: **Grant access**, **<ins>TOU</ins>**  
+* Session:  
 
 Select all guest and external users
 
 You must create the Terms Of Use before configuring this policy. You can create a bare bones TOU, install the policy and then flesh out the TOU later if needed
 
 ### CA900-Breakglass-IdentityProtection-AllApps-AnyPlatform-AuthStr-Require Phishing-resistant Authentication for BreakGlass Accounts v1.0
-Users:  
-    Include: **<ins>Breakglass</ins>**  
-    Exclude: None  
-Target resources:  
-    Resources (formerly cloud apps):  
-        Include: **All resources**  
-        Exclude:  
-Network: No  
-Conditions:  
-    Device Platforms:  
-    Locations:  
-    Client apps:  
-    Filter for devices:  
-    Authentication flows:  
-Grant: **Grant access**, **Require authentication strength, Phishing-resistant MFA**  
-Session:  
+* Users:  
+  - Include: **<ins>Breakglass</ins>**  
+  - Exclude: None  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **All resources**  
+    - Exclude:  
+* Network: No  
+* Conditions:  
+  - Device Platforms:  
+  - Locations:  
+  - Client apps:  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant: **Grant access**, **Require authentication strength, Phishing-resistant MFA**  
+* Session:  
 
 Critical policy, as the Breakglass account/group is exempt from most of the other policies. It is a strong recommendation that Breakglass accounts are an onmicrosoft.com account with no licenses and Global Administrator role. A FIDO2 physical key with a PIN is the recommended authentication method, and ideally you will provision three Breakglass accounts, with one kept onsite in a safe with the login details, two kept offsite at different locations.
 
 ## Privileged Access
 
 ### CA101-Admins-AttackSurfaceReduction-AllApps-iOS&Android-Block-Block iOS & Android access v1.0
-This is set to **<ins>Select users and groups, Directory Roles</ins>** with **<ins>Breakglass</ins>** exclusion, Target resources **All resources**, Conditions Device platforms Include **Android, iOS** Exclude  **WindowsPhone, Windows, macOS, Linux**, Grant **Block access**
+* Users:  
+  - Include: **<ins>Select users and groups, Directory Roles</ins>**  
+  - Exclude: **<ins>Breakglass</ins>**  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **All resources**  
+    - Exclude:  
+* Network: No  
+* Conditions:  
+  - Device Platforms:  
+    - Include: **Android, iOS**  
+    - Exclude: **WindowsPhone, Windows, macOS, Linux**  
+  - Locations:  
+  - Client apps:  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant: **Block access**  
+* Session:  
 
 You will need to select the Directory Roles. I recommend everything Administrator, Editor, Technician, Engineer, Specialist, Creator, Security, Developer, Attribute, Writer, Inviter, Analyst, Author since all of these have some kind of write-access to the environment, or access privileged information
 
 ### CA102-Admins-IdentityProtection-AllApps-AnyPlatform-MFA-Require MFA for Medium & High risk Sign-in v1.0
-This is set to **<ins>Select users and groups, Directory Roles</ins>** with **<ins>Breakglass</ins>** exclusion, Target resources **All resources**, Conditions Sign-in risk **High, Medium**, Grant **Require authentication strength, Passwordless MFA**
+* Users:  
+  - Include: **<ins>Select users and groups, Directory Roles</ins>**  
+  - Exclude: **<ins>Breakglass</ins>**  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **All resources**  
+    - Exclude:  
+* Network: No  
+* Conditions:  
+  - User Risk:  
+  - Sign-in Risk: **High, Medium**  
+  - Insider Risk:  
+  - Device Platforms:  
+    - Include:    
+    - Exclude:    
+  - Locations:  
+  - Client apps:  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant: **Grant access**, **Require authentication strength, Passwordless MFA**  
+* Session:  
 
 CA022 applies similar controls to all users. CA107 extends these controls with Password reset. CA025 blocks High sign-in risk.
 
 ### CA103-Admins-DataProtection-AllApps-AnyPlatform-SessionControl-Non-persistent browser session & 4h frequency v1.0
-This is set to **<ins>Select users and groups, Directory Roles</ins>** with **<ins>Breakglass</ins>** exclusion, Target resources **All resources**, Session **Sign-in frequency Periodic reauthentication, 4 hours, Persistent browser session, Never persistent**
+* Users:  
+  - Include: **<ins>Select users and groups, Directory Roles</ins>**  
+  - Exclude: **<ins>Breakglass</ins>**  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **All resources**  
+    - Exclude:  
+* Network: No  
+* Conditions:  
+  - User Risk:  
+  - Sign-in Risk: **High, Medium**  
+  - Insider Risk:  
+  - Device Platforms:  
+    - Include: **Android, iOS**  
+    - Exclude: **WindowsPhone, Windows, macOS, Linux**  
+  - Locations:  
+  - Client apps:  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant: **Grant access**, **Require authentication strength, Passwordless MFA**  
+* Session:  
+
+ Session **Sign-in frequency Periodic reauthentication, 4 hours, Persistent browser session, Never persistent**
 
 You will need to select the Directory Roles. I recommend everything Administrator, Editor, Technician, Engineer, Specialist, Creator, Security, Developer, Attribute, Writer, Inviter, Analyst, Author since all of these have some kind of write-access to the environment, or access privileged information
 
 ### CA104-Admins-DataProtection-AdminPortals-Windows&MacOS-Compliance&AuthStr-Require Compliant device & Phishing-resistant Auth for Admin Portals v1.0
-This is set to **<ins>Select users and groups, Directory Roles</ins>** with **<ins>Breakglass</ins>** exclusion, Target resources **Microsoft Admin Portals**, Conditions Device platforms Include **Windows, macOS** Exclude  **Android, iOS, WindowsPhone, Linux**, Grant **Require authentication strength, Phishing-resistant MFA, Require device to be marked as compliant** **Require all the selected controls**
+* Users:  
+  - Include: **<ins>Select users and groups, Directory Roles</ins>**  
+  - Exclude: **<ins>Breakglass</ins>**  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **Microsoft Admin Portals**  
+    - Exclude:  
+* Network: No  
+* Conditions:  
+  - User Risk:  
+  - Sign-in Risk:  
+  - Insider Risk:  
+  - Device Platforms:  
+    - Include: **Windows, macOS**    
+    - Exclude: **Android, iOS, WindowsPhone, Linux**    
+  - Locations:  
+  - Client apps:  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant: **Grant access**, **Require authentication strength, Phishing-resistant MFA, Require device to be marked as compliant** **Require all the selected controls**  
+* Session:  
 
 You will need to select the Directory Roles. I recommend everything Administrator, Editor, Technician, Engineer, Specialist, Creator, Security, Developer, Attribute, Writer, Inviter, Analyst, Author since all of these have some kind of write-access to the environment, or access privileged information
 
 Policies in Report-only mode requiring compliant devices may prompt users on macOS, iOS, Android, and Linux to select a device certificate.
 
 ### CA105-Admins-IdentityProtection-PIM-AnyPlatform-MFA-Require MFA for PIM elevation v1.0
-This is set to **<ins>Select users and groups, Directory Roles</ins>** with **<ins>Breakglass</ins>** exclusion, Target resources **Authentication context, c1**, Grant **Require authentication strength, Phishing-resistant MFA**, Session **Sign-in frequency, Every time**
+* Users:  
+  - Include: **<ins>Select users and groups, Directory Roles</ins>**  
+  - Exclude: **<ins>Breakglass</ins>**  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **Authentication context, c1**  
+    - Exclude:  
+* Network: No  
+* Conditions:  
+  - User Risk:  
+  - Sign-in Risk:  
+  - Insider Risk:  
+  - Device Platforms:  
+    - Include:    
+    - Exclude:    
+  - Locations:  
+  - Client apps:  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant: **Grant access**, **Require authentication strength, Phishing-resistant MFA** 
+* Session: **Sign-in frequency, Every time** 
 
 You will need to select the Directory Roles. I recommend everything Administrator, Editor, Technician, Engineer, Specialist, Creator, Security, Developer, Attribute, Writer, Inviter, Analyst, Author since all of these have some kind of write-access to the environment, or access privileged information
 
 Only available for creation if PIM is enabled, and you have created an Authentication Context.
 
 ### CA106-Admins-AttackSurfaceReduction-O365-AnyPlatform-Block-Block access to Office 365 v1.
-This is set to **<ins>Select users and groups, Directory Roles</ins>** with **<ins>Breakglass</ins>** exclusion, Target resources **Office 365**, Grant **Block access**
+* Users:  
+  - Include: **<ins>Select users and groups, Directory Roles</ins>**  
+  - Exclude: **<ins>Breakglass</ins>**  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **Office 365**  
+    - Exclude:  
+* Network: No  
+* Conditions:  
+  - User Risk:  
+  - Sign-in Risk:  
+  - Insider Risk:  
+  - Device Platforms:  
+    - Include:    
+    - Exclude:    
+  - Locations:  
+  - Client apps:  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant: **Block access**  
+* Session:  
 
 You will need to select the Directory Roles. I recommend everything Administrator, Editor, Technician, Engineer, Specialist, Creator, Security, Developer, Attribute, Writer, Inviter, Analyst, Author since all of these have some kind of write-access to the environment, or access privileged information
 
