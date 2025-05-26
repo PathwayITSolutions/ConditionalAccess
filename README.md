@@ -24,41 +24,41 @@ Default Settings are **in bold**. Settings you need to customize are **<ins>unde
 
 ### CA000-Global-BaselineProtection-AllApps-AnyPlatform-Block-Block legacy authentication v1.0
 Users:  
-    Include: **All Users**
-    Exclude: None
-Target resources:
-    Resources (formerly cloud apps):
-        Include: **All resources**
-        Exclude: None
-Network: No
-Conditions:
-    Device Platforms:
-    Locations:
-    Client apps: **Exchange ActiveSync clients** and **Other clients**
-    Filter for devices:
-    Authentication flows:
-Grant: **Block access**
-Session:
+    Include: **All Users**  
+    Exclude: None  
+Target resources:  
+    Resources (formerly cloud apps):  
+        Include: **All resources**  
+        Exclude: None  
+Network: No  
+Conditions:  
+    Device Platforms:  
+    Locations:  
+    Client apps: **Exchange ActiveSync clients** and **Other clients**  
+    Filter for devices:  
+    Authentication flows:  
+Grant: **Block access**  
+Session:  
 
 It is meant to be run without the Breakglass exception.
 
 ### CA001-Global-BaselineProtection-AllApps-AnyPlatform-MFA-Require MFA for all users v1.0
-Users:
-    Include: **All Users**
-    Exclude: **<ins>Breakglass</ins>**
-Target resources:
-    Resources (formerly cloud apps):
-        Include: **All resources**
-        Exclude: **Microsoft Intune**, **Microsoft Intune Enrollment**
-Network: No
-Conditions:
-    Device Platforms:
-    Locations:
-    Client apps:
-    Filter for devices:
-    Authentication flows:
-Grant: **Grant access**, **Require authentication strength, Multifactor authentication strength**
-Session:
+Users:  
+    Include: **All Users**  
+    Exclude: **<ins>Breakglass</ins>**  
+Target resources:  
+    Resources (formerly cloud apps):  
+        Include: **All resources**  
+        Exclude: **Microsoft Intune**, **Microsoft Intune Enrollment**  
+Network: No  
+Conditions:  
+    Device Platforms:  
+    Locations:  
+    Client apps:  
+    Filter for devices:  
+    Authentication flows:  
+Grant: **Grant access**, **Require authentication strength, Multifactor authentication strength**  
+Session:  
 
 ### CA002-Global-AttackSurfaceReduction-AllApps-AnyPlatform-Block-Block non-business countries v1.0
 
