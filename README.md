@@ -701,83 +701,374 @@ Requires a Windows App Protection Policy or a Compliant device when accessing O3
 
 Enforcing App Enforced Restrictions for Office 365 ensures the Session Timeout configured in the Microsoft 365 Admin portal is applied. This policy supersedes the session timeout settings in SharePoint.
 
-
 ### CA013-Global-Data&AppProtection-Exchange&Sharepoint-AnyPlatform-AppControl-Enforce Defender for Cloud Apps Session policy - Block Downloads for unmanaged devices v1.0
-This is set to **All Users** with **<ins>Breakglass</ins>** exclusion **<ins>ServiceAccounts</ins>** exclusion, Conditions Filter for devices Exclude filtered devices **device.isCompliant -eq True**, Target resources **Exchange, SharePoint**, Session **Conditional Access App Control, Block downloads**
+* Users:  
+  - Include: **All Users**  
+  - Exclude: **<ins>Breakglass</ins>**, **<ins>ServiceAccounts</ins>**,  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **Exchange, SharePoint**  
+    - Exclude:  
+* Network: No  
+* Conditions:  
+  - User Risk:  
+  - Sign-in Risk:  
+  - Insider Risk:  
+  - Device Platforms:  
+    - Include:    
+    - Exclude:    
+  - Locations:  
+  - Client apps:  
+  - Filter for devices: Yes  
+    - Include:  
+    - Exclude: **device.isCompliant -eq True**  
+  - Authentication flows:  
+* Grant:  
+* Session: **Conditional Access App Control, Block downloads**  
 
 This policy uses the built-in *Block Downloads* App Control policy, preventing unmanaged devices from downloading company data to protect against data exfiltration. An alternate filter may be device.deviceOwnership -eq "Company" but this will be less stringent. The configured filter catches owned devices that have fallen out of compliance
 
 ### CA014-Global-Data&AppProtection-VariousApps-AnyPlatform-AppControl-Enforce Defender for Cloud Apps Session policy - Custom policy v1.0
-This is set to **All Users** with **<ins>Breakglass</ins>** exclusion **<ins>ServiceAccounts</ins>** exclusion, Target resources **<ins>Custom</ins>**, Session **Conditional Access App Control, Use custom policy**
+* Users:  
+  - Include: **All Users**  
+  - Exclude: **<ins>Breakglass</ins>**, **<ins>ServiceAccounts</ins>**  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **<ins>Custom</ins>**  
+    - Exclude:  
+* Network: No  
+* Conditions:  
+  - User Risk:  
+  - Sign-in Risk:  
+  - Insider Risk:  
+  - Device Platforms:    
+  - Locations:  
+  - Client apps:  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant:   
+* Session: **Conditional Access App Control, Use custom policy**  
 
 This policy enforces a custom policy configured in Defender for Cloud Apps, requiring setup of the app connector, app onboarding, Conditional Access App control, and the session policy to meet your enforcement requirements. License requirements apply.
 
 ### CA015-Global-DataProtection-Sharepoint-AnyPlatform-ComplianceOREntraJoined-Require managed device for Sharepoint access v1.0
-This is set to **All Users** with **<ins>Breakglass</ins>** exclusion **<ins>ServiceAccounts</ins>** exclusion, Client apps **Mobile app and desktop clients**, Target resources **SharePoint**, Grant **Compliant device, Hybrid Azure AD joined device** **Require one of the selected controls**
+* Users:  
+  - Include: **All Users**  
+  - Exclude: **<ins>Breakglass</ins>**, **<ins>ServiceAccounts</ins>**  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **SharePoint**  
+    - Exclude:  
+* Network: No  
+* Conditions:  
+  - User Risk:  
+  - Sign-in Risk:  
+  - Insider Risk:  
+  - Device Platforms:  
+  - Locations:  
+  - Client apps: **Mobile app and desktop clients** 
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant: **Grant access**, **Compliant device, Hybrid Azure AD joined device**, **Require one of the selected controls** 
+* Session:  
 
 Requiring a compliant device for SharePoint access protects company data against both intentional and accidental exfiltration, ensuring only managed devices can access SharePoint on mobile and desktop. Changing the *Require one of the selected controls* to *Require all the selected controls* would ensure that only Entra-joined Compliant devices can access SharePoint
 
 ### CA016-Global-DataProtection-Sharepoint-AnyPlatform-AppControl-Enforce limited web access for Sharepoint for unmanaged device v1.0
-This is set to **All Users** with **<ins>Breakglass</ins>** exclusion **<ins>ServiceAccounts</ins>** exclusion, Client apps **Browser**, Target resources **SharePoint**,  Session **App enforced restrictions**
+* Users:  
+  - Include: **All Users**  
+  - Exclude: **<ins>Breakglass</ins>**, **<ins>ServiceAccounts</ins>** 
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **SharePoint** 
+    - Exclude:  
+* Network: No  
+* Conditions:  
+  - User Risk:  
+  - Sign-in Risk:  
+  - Insider Risk:  
+  - Device Platforms:  
+  - Locations:  
+  - Client apps: **Browser** 
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant:   
+* Session: **App enforced restrictions** 
 
 When used with CA015, further controls access to SharePoint through the policies in the SharePoint admin center
 
 ### CA017-Global-IdentityProtection-AllApps-AnyPlatform-SessionControl-Enforce never persistent browser session v1.0
-This is set to **All Users**, Target resources **All resources**, Session **Persistent browser session, Never persistent**
+* Users:  
+  - Include: **All Users**  
+  - Exclude:  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **All resources**  
+    - Exclude:  
+* Network: No  
+* Conditions:  
+  - User Risk:  
+  - Sign-in Risk:  
+  - Insider Risk:  
+  - Device Platforms:  
+  - Locations:  
+  - Client apps:  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant:  
+* Session: **Persistent browser session, Never persistent**  
 
 This policy prevents users from saving their PTR tokens, requiring them to authenticate for each session. Depending on PTR lifetime, this enforces MFA or a phishing-resistant authentication method, such as a security key or Windows Hello for Business, aligning with the Zero Trust principle of Verify Explicitly.
 
 It is meant to be run without the Breakglass exception.
 
 ### CA901-Marketing-IdentityProtection-GSA-AnyPlatform-SecurityProfile-Enforce Entra Internet Access Security profile for Marketing v1.0
-This is set to **<ins>Marketing</ins>** with **<ins>Breakglass</ins>** exclusion, Target resources **<ins>Custom</ins>**, Session **<ins>Custom</ins>**
+* Users:  
+  - Include: **<ins>Marketing</ins>**  
+  - Exclude: **<ins>Breakglass</ins>**  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **<ins>Custom</ins>**  
+    - Exclude:  
+* Network: No  
+* Conditions:  
+  - User Risk:  
+  - Sign-in Risk:  
+  - Insider Risk:  
+  - Device Platforms:   
+  - Locations:  
+  - Client apps:  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant:    
+* Session: **<ins>Custom</ins>**  
 
 You will need to define the Marketing group, the Target resources and the Session resources. They are Network Access Security policies and Global Secure Access profiles
 
 ## Non-human identities
 
 ### CA800-ServiceAccounts-DataProtection-AllApps-AnyPlatform-Compliance-Require compliant device for untrusted networks for Service Accounts v1.0
-This is set to **<ins>Service Accounts</ins>** with **<ins>Breakglass</ins>** exclusion, Locations Include **All** Exclude **All Trusted**, Target resources **All**, Grant **Grant access, Compliant device**
+* Users:  
+  - Include: **<ins>Service Accounts</ins>**  
+  - Exclude: **<ins>Breakglass</ins>** 
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **All**  
+    - Exclude:  
+* Network: No  
+* Conditions:  
+  - User Risk:  
+  - Sign-in Risk:  
+  - Insider Risk:  
+  - Device Platforms:  
+    - Include:    
+    - Exclude:    
+  - Locations:  
+    - Include: **All**   
+    - Exclude: **All Trusted**   
+  - Client apps:  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant: **Grant access**, **Compliant device** 
+* Session:  
 
 This policy requires Compliant devices for Service Accounts when on an untrusted network. For added security, removing the Exclude All Trusted would ensure that every device a Service Account is using has to be a Compliant device, however that adds to the complexity required in device compliancy.
 
 ### CA801-ServiceAccounts-AttackSurfaceReduction-AllApps-AnyPlatform-Block-Block untrusted locations v1.0
-This is set to **<ins>Service Accounts</ins>** with **<ins>Breakglass</ins>** exclusion, Locations Include **All** Exclude **All Trusted**, Target resources **All**, Grant **Block access**
+* Users:  
+  - Include: **<ins>Service Accounts</ins>**  
+  - Exclude: **<ins>Breakglass</ins>**  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **All**  
+    - Exclude:  
+* Network: No  
+* Conditions:  
+  - User Risk:  
+  - Sign-in Risk:  
+  - Insider Risk:  
+  - Device Platforms:  
+  - Locations:
+    - Include: **All**    
+    - Exclude: **All Trusted**      
+  - Client apps:  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant: **Block access**  
+* Session:  
 
 This policy prevents Service Accounts from accessing resources from untrusted locations.
 
 ### CA802-ServiceAccounts-DataProtection-AllApps-AnyPlatform-Block-Enforce CAE strict location v1.0
-This is set to **<ins>Service Accounts</ins>** with **<ins>Breakglass</ins>** exclusion, Locations Include **All** Exclude **All Trusted**, Target resources **All**, Grant **Block access**, Session **Continuous access evaluation, Strictly enforce location policies**
+* Users:  
+  - Include: **<ins>Service Accounts</ins>**  
+  - Exclude: **<ins>Breakglass</ins>**  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **All** 
+    - Exclude:  
+* Network: No  
+* Conditions:  
+  - User Risk:  
+  - Sign-in Risk:  
+  - Insider Risk:  
+  - Device Platforms:  
+    - Include:    
+    - Exclude:    
+  - Locations:  
+    - Include: **All**    
+    - Exclude: **All Trusted**   
+  - Client apps:  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant: **Block access**  
+* Session: **Continuous access evaluation, Strictly enforce location policies** 
 
 Protects against location-based attacks by ensuring Service Accounts are only accessible from trusted locations, enforcing continuous access evaluations for real-time security.
 
 ### CA803-ServiceAccounts-IdentityProtection-AllApps-AnyPlatform-Block-Block Medium & High user risk v1.0
-This is set to **<ins>Service Accounts</ins>** with **<ins>Breakglass</ins>** exclusion, User risk **High, Medium**, Target resources **All**, Grant **Block access**
+* Users:  
+  - Include: **<ins>Service Accounts</ins>**  
+  - Exclude: **<ins>Breakglass</ins>**  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **All**   
+    - Exclude:  
+* Network: No  
+* Conditions:  
+  - User Risk: **High, Medium**  
+  - Sign-in Risk:  
+  - Insider Risk:  
+  - Device Platforms:  
+  - Locations:  
+  - Client apps:  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant: **Block access**  
+* Session:  
 
 This policy blocks Risky user behavior from Service Accounts.
 
 ### CA804-ServiceAccounts-IdentityProtection-AllApps-AnyPlatform-Block-Block Medium & High sign-in risk v1.0
-This is set to **<ins>Service Accounts</ins>** with **<ins>Breakglass</ins>** exclusion, Sign-in Risk **High, Medium**, Target resources **All**, Grant **Block access**
+* Users:  
+  - Include: **<ins>Service Accounts</ins>**  
+  - Exclude: **<ins>Breakglass</ins>**  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **All**  
+    - Exclude:  
+* Network: No  
+* Conditions:  
+  - User Risk:  
+  - Sign-in Risk: **High, Medium**  
+  - Insider Risk:  
+  - Device Platforms:  
+  - Locations:  
+  - Client apps:  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant: **Block access**  
+* Session:  
 
 This policy blocks Risky sign-in behavior from Service Accounts.
 
 ### CA805-ServiceAccounts-AttackSurfaceReduction-AllAppsExcludedMSFT-AnyPlatform-Block-Block unneeded applications v1.0
-This is set to **<ins>Service Accounts</ins>** with **<ins>Breakglass</ins>** exclusion, Target resources **All** with **Microsoft Admin Portals** exclustion **Windows Azure Service Management API** exclusion, Grant **Block access**
+* Users:  
+  - Include: **<ins>Service Accounts</ins>**  
+  - Exclude: **<ins>Breakglass</ins>**  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **All**  
+    - Exclude: **Microsoft Admin Portals**, **Windows Azure Service Management API**   
+* Network: No  
+* Conditions:  
+  - User Risk:  
+  - Sign-in Risk:  
+  - Insider Risk:  
+  - Device Platforms:  
+  - Locations:  
+  - Client apps:  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant: **Block access**  
+* Session:  
 
 This policy blocks access to all areas that a Service Account has no need to touch. It can be reconfigured depending on need.
 
 ### CA902-WorkloadIDs-AttackSurfaceReduction-AllApps-AnyPlatform-Block-Block untrusted locations v1.0
-This is set to **<ins>Workload IDs</ins>** with **<ins>Breakglass</ins>** exclusion, Locations Include **All** Exclude **All Trusted**, Target resources **All**, Grant **Block access**
+* Users:  
+  - Include: **<ins>Workload IDs</ins>**  
+  - Exclude: **<ins>Breakglass</ins>**  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **All**  
+    - Exclude:  
+* Network: No  
+* Conditions:  
+  - User Risk:  
+  - Sign-in Risk:  
+  - Insider Risk:  
+  - Device Platforms:  
+  - Locations:  
+    - Include: **All**     
+    - Exclude: **All Trusted**    
+  - Client apps:  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant: **Block access**  
+* Session:  
 
 This policy prevents Workload IDs from accessing resources from untrusted locations.
 
 ### CA903-WorkloadIDs-IdentityProtection-AllApps-AnyPlatform-Block-Block Medium & High user risk v1.0
-This is set to **<ins>Workload IDs</ins>** with **<ins>Breakglass</ins>** exclusion, Service Principal Risk **High, Medium**, Grant **Block access**
+* Users:  
+  - Include: **<ins>Workload IDs</ins>**  
+  - Exclude: **<ins>Breakglass</ins>**  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include:  
+    - Exclude:  
+* Network: No  
+* Conditions:  
+  - Service Principal Risk: **High, Medium**  
+  - Sign-in Risk:  
+  - Insider Risk:  
+  - Device Platforms:  
+    - Include:    
+    - Exclude:    
+  - Locations:  
+  - Client apps:  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant: **Block access**  
+* Session:  
 
 Protects against compromised workload identities by blocking access for accounts that show signs of risky behavior, reducing potential breaches. Risk is calcuated using Microsofts algorithm, which you should be familiar with before enabling this policy.
 
 ### CA904-WorkloadIDs-DataProtection-AllApps-AnyPlatform-Block-Enforce CAE strict location v1.0
-This is set to **<ins>Workload IDs</ins>** with **<ins>Breakglass</ins>** exclusion, Locations Include **All** Exclude **All Trusted**, Target resources **All**, Grant **Block access**, Session **Continuous access evaluation, Strictly enforce location policies**
+* Users:  
+  - Include: **<ins>Workload IDs</ins>**  
+  - Exclude: **<ins>Breakglass</ins>**  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **All**  
+    - Exclude:  
+* Network: No  
+* Conditions:  
+  - User Risk:  
+  - Sign-in Risk:  
+  - Insider Risk:  
+  - Device Platforms:  
+    - Include:    
+    - Exclude:    
+  - Locations:  
+    - Include: **All**   
+    - Exclude: **All Trusted**   
+  - Client apps:  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant: **Block access**  
+* Session: **Continuous access evaluation, Strictly enforce location policies**
 
 Protects against location-based attacks by ensuring workload identities are only accessible from trusted locations, enforcing continuous access evaluations for real-time security.
 
