@@ -23,13 +23,13 @@ Default Settings are **in bold**. Settings you need to customize are **<ins>unde
 ## Essentials
 
 ### CA000-Global-BaselineProtection-AllApps-AnyPlatform-Block-Block legacy authentication v1.0
-Users:  
-- Include: **All Users**  
-- Exclude: None  
-Target resources:  
-- Resources (formerly cloud apps):  
-        Include: **All resources**  
-        Exclude: None  
+* Users:  
+  - Include: **All Users**  
+  - Exclude: None  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **All resources**  
+    - Exclude: None  
 Network: No  
 Conditions:  
     Device Platforms:  
