@@ -30,15 +30,15 @@ Default Settings are **in bold**. Settings you need to customize are **<ins>unde
   - Resources (formerly cloud apps):  
     - Include: **All resources**  
     - Exclude: None  
-Network: No  
-Conditions:  
-    Device Platforms:  
-    Locations:  
-    Client apps: **Exchange ActiveSync clients** and **Other clients**  
-    Filter for devices:  
-    Authentication flows:  
-Grant: **Block access**  
-Session:  
+* Network: No  
+* Conditions:  
+  - Device Platforms:  
+  - Locations:  
+  - Client apps: **Exchange ActiveSync clients** and **Other clients**  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant: **Block access**  
+* Session:  
 
 It is meant to be run without the Breakglass exception.
 
