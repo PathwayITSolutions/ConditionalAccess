@@ -355,9 +355,7 @@ CA022 applies similar controls to all users. CA107 extends these controls with P
   - Filter for devices:  
   - Authentication flows:  
 * Grant: **Grant access**, **Require authentication strength, Passwordless MFA**  
-* Session:  
-
- Session **Sign-in frequency Periodic reauthentication, 4 hours, Persistent browser session, Never persistent**
+* Session: **Sign-in frequency Periodic reauthentication, 4 hours, Persistent browser session, Never persistent**  
 
 You will need to select the Directory Roles. I recommend everything Administrator, Editor, Technician, Engineer, Specialist, Creator, Security, Developer, Attribute, Writer, Inviter, Analyst, Author since all of these have some kind of write-access to the environment, or access privileged information
 
@@ -381,7 +379,7 @@ You will need to select the Directory Roles. I recommend everything Administrato
   - Client apps:  
   - Filter for devices:  
   - Authentication flows:  
-* Grant: **Grant access**, **Require authentication strength, Phishing-resistant MFA, Require device to be marked as compliant** **Require all the selected controls**  
+* Grant: **Grant access**, **Require authentication strength, Phishing-resistant MFA, Require device to be marked as compliant**, **Require all the selected controls**  
 * Session:  
 
 You will need to select the Directory Roles. I recommend everything Administrator, Editor, Technician, Engineer, Specialist, Creator, Security, Developer, Attribute, Writer, Inviter, Analyst, Author since all of these have some kind of write-access to the environment, or access privileged information
@@ -402,8 +400,6 @@ Policies in Report-only mode requiring compliant devices may prompt users on mac
   - Sign-in Risk:  
   - Insider Risk:  
   - Device Platforms:  
-    - Include:    
-    - Exclude:    
   - Locations:  
   - Client apps:  
   - Filter for devices:  
@@ -429,8 +425,6 @@ Only available for creation if PIM is enabled, and you have created an Authentic
   - Sign-in Risk:  
   - Insider Risk:  
   - Device Platforms:  
-    - Include:    
-    - Exclude:    
   - Locations:  
   - Client apps:  
   - Filter for devices:  
@@ -441,65 +435,269 @@ Only available for creation if PIM is enabled, and you have created an Authentic
 You will need to select the Directory Roles. I recommend everything Administrator, Editor, Technician, Engineer, Specialist, Creator, Security, Developer, Attribute, Writer, Inviter, Analyst, Author since all of these have some kind of write-access to the environment, or access privileged information
 
 ### CA107-Admins-IdentityProtection-AllApps-AnyPlatform-MFA&PWDreset-Require MFA & Password reset for Medium & High user-risk v1.0
-This is set to **<ins>Select users and groups, Directory Roles</ins>** with **<ins>Breakglass</ins>** exclusion, Target resources **All resources**, Conditions User risk **High, Medium**, Grant **Require authentication strength, Passwordless MFA, Require password change** **Require all the selected controls**
+* Users:  
+  - Include: **<ins>Select users and groups, Directory Roles</ins>**  
+  - Exclude: **<ins>Breakglass</ins>**  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **All resources**  
+    - Exclude:  
+* Network: No  
+* Conditions:  
+  - User Risk: **High, Medium**  
+  - Sign-in Risk:  
+  - Insider Risk:  
+  - Device Platforms:  
+  - Locations:  
+  - Client apps:  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant: **Grant access**, **Require authentication strength, Passwordless MFA, Require password change**, **Require all the selected controls**  
+* Session:  
 
 You will need to select the Directory Roles. I recommend everything Administrator, Editor, Technician, Engineer, Specialist, Creator, Security, Developer, Attribute, Writer, Inviter, Analyst, Author since all of these have some kind of write-access to the environment, or access privileged information
 
 CA022 applies similar controls to all users. CA102 mirrors these controls without Password reset. CA025 blocks High sign-in risk.
 
 ### CA500-GuestAdmins-AttackSurfaceReduction-O365-AnyPlatform-Block-Block access to Office 365 v1.0
-This is set to **<ins>Select users and groups, GuestAdmins group</ins>** with **<ins>Breakglass</ins>** exclusion, Target resources **O365**, Grant **Block access**
+* Users:  
+  - Include: **<ins>Select users and groups, GuestAdmins group</ins>**  
+  - Exclude: **<ins>Breakglass</ins>**  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **O365**  
+    - Exclude:  
+* Network: No  
+* Conditions:  
+  - User Risk:  
+  - Sign-in Risk:  
+  - Insider Risk:  
+  - Device Platforms:  
+  - Locations:  
+  - Client apps:  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant: **Block access**  
+* Session:  
 
 GuestAdmins is a defined group, these policies are only for when you want to apply different rules to external Admins than internal Admins with the same role. To do this you need to edit CA100-CA107 and specify defined Admin groups rather than use Roles.
 
 ### CA501-GuestAdmins-IdentityProtection-PIMelevation-AnyPlatform-MFA-Require MFA for PIM elevation v1.0
-This is set to **<ins>Select users and groups, GuestAdmins group</ins>** with **<ins>Breakglass</ins>** exclusion, Target resources **PIM**, Grant **Require authentication strength, Multifactor authentication**
+* Users:  
+  - Include: **<ins>Select users and groups, GuestAdmins group</ins>**  
+  - Exclude: **<ins>Breakglass</ins>**  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **PIM**  
+    - Exclude:  
+* Network: No  
+* Conditions:  
+  - User Risk:  
+  - Sign-in Risk:  
+  - Insider Risk:  
+  - Device Platforms:  
+  - Locations:  
+  - Client apps:  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant: **Grant access**, **Require authentication strength, Multifactor authentication** 
+* Session:  
 
 GuestAdmins is a defined group, these policies are only for when you want to apply different rules to external Admins than internal Admins with the same role. To do this you need to edit CA100-CA107 and specify defined Admin groups rather than use Roles.
 
 Only available for creation if PIM is enabled, and you have created an Authentication Context.
 
 ### CA502-GuestAdmins-IdentityProtection-AllApps-AnyPlatform-MFA&PWDreset-Require MFA & Password Reset for Medium & High user-risk Guest admins v1.0
-This is set to **<ins>Select users and groups, GuestAdmins group</ins>** with **<ins>Breakglass</ins>** exclusion, Target resources **All resources**,Conditions User risk **High, Medium**, Grant **Require authentication strength, Multifactor authentication, Require password change**
+* Users:  
+  - Include: **<ins>Select users and groups, GuestAdmins group</ins>**  
+  - Exclude: **<ins>Breakglass</ins>**  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **All resources**  
+    - Exclude:  
+* Network: No  
+* Conditions:  
+  - User Risk: **High, Medium**  
+  - Sign-in Risk:  
+  - Insider Risk:  
+  - Device Platforms:  
+  - Locations:  
+  - Client apps:  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant: **Grant access**, **Require authentication strength, Multifactor authentication, Require password change**  
+* Session:  
 
 GuestAdmins is a defined group, these policies are only for when you want to apply different rules to external Admins than internal Admins with the same role. To do this you need to edit CA100-CA107 and specify defined Admin groups rather than use Roles.
 
 ### CA503-GuestAdmins-IdentityProtection-AllApps-AnyPlatform-MFA-Require MFA for Low+ sign-in risk for guest admins v1.0
-This is set to **<ins>Select users and groups, GuestAdmins group</ins>** with **<ins>Breakglass</ins>** exclusion, Target resources **All resources**, Conditions Sign-in risk **High, Medium, Low**, Grant **Require authentication strength, Multifactor authentication**
+* Users:  
+  - Include: **<ins>Select users and groups, GuestAdmins group</ins>**  
+  - Exclude: **<ins>Breakglass</ins>**  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **All resources**  
+    - Exclude:  
+* Network: No  
+* Conditions:  
+  - User Risk:  
+  - Sign-in Risk: **High, Medium, Low**  
+  - Insider Risk:  
+  - Device Platforms:  
+  - Locations:  
+  - Client apps:  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant: **Grant access**, **Require authentication strength, Multifactor authentication**  
+* Session:  
 
 GuestAdmins is a defined group, these policies are only for when you want to apply different rules to external Admins than internal Admins with the same role. To do this you need to edit CA100-CA107 and specify defined Admin groups rather than use Roles.
 
 ### CA504-GuestAdmins-ComplianceProtection-CombinedRegistration-AnyPlatform-TOU-Require TOU for security info for Guest Admins v1.0
-This is set to **<ins>Select users and groups, GuestAdmins group</ins>** with **<ins>Breakglass</ins>** exclusion, Target resources **Security registration**, Grant **<ins>TOU</ins>**
+* Users:  
+  - Include: **<ins>Select users and groups, GuestAdmins group</ins>**  
+  - Exclude: **<ins>Breakglass</ins>**  
+* Target resources:  
+  - User actions: **Security registration**  
+* Network: No  
+* Conditions:  
+  - User Risk:  
+  - Sign-in Risk:  
+  - Insider Risk:  
+  - Device Platforms:  
+  - Locations:  
+  - Client apps:  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant: **Grant access**, **<ins>TOU</ins>**  
+* Session:  
 
 GuestAdmins is a defined group, these policies are only for when you want to apply different rules to external Admins than internal Admins with the same role. To do this you need to edit CA100-CA107 and specify defined Admin groups rather than use Roles.
 
 You must create the Terms Of Use before configuring this policy. You can create a bare bones TOU, install the policy and then flesh out the TOU later if needed
 
 ### CA505-GuestAdmins-DataProtection-AllApps-AnyPlatform-SessionControl-Non-persistent browser session & 1h frequency v1.0
-This is set to **<ins>Select users and groups, GuestAdmins group</ins>** with **<ins>Breakglass</ins>** exclusion, Target resources **All resources**, Session **Sign-in frequency Periodic reauthentication, 1 hours, Persistent browser session, Never persistent**
+* Users:  
+  - Include: **<ins>Select users and groups, GuestAdmins group</ins>**  
+  - Exclude: **<ins>Breakglass</ins>**  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **All resources**  
+    - Exclude:  
+* Network: No  
+* Conditions:  
+  - User Risk:  
+  - Sign-in Risk:  
+  - Insider Risk:  
+  - Device Platforms:  
+  - Locations:  
+  - Client apps:  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant:    
+* Session: **Sign-in frequency Periodic reauthentication, 1 hours, Persistent browser session, Never persistent**  
 
 GuestAdmins is a defined group, these policies are only for when you want to apply different rules to external Admins than internal Admins with the same role. To do this you need to edit CA100-CA107 and specify defined Admin groups rather than use Roles.
 
 ## Application Policies
 
 ### CA009-Global-IdentityProtection-AllApps-AnyPlatform-CompliantNetwork-Require Global Secure Access client active v1.0
-This is set to **All Users** with **<ins>Breakglass</ins>** exclusion **Guest or external users, All external Azure AD organizations** exclusion **<ins>ServiceAccounts</ins>** exclusion **<ins>Admins</ins>** exclusion, Target resources **All resources** with **Microsoft Intune, Microsoft Intune Enrollment** exclusion, Locations **All** with **All Compliant Network locations** exclusion, Grant **Block access**
+* Users:  
+  - Include: **All Users**  
+  - Exclude: **<ins>Breakglass</ins>**, **Guest or external users, All external Azure AD organizations**, **<ins>ServiceAccounts</ins>**, **<ins>Admins</ins>**  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **All resources**  
+    - Exclude: **Microsoft Intune, Microsoft Intune Enrollment**  
+* Network: No  
+* Conditions:  
+  - User Risk:  
+  - Sign-in Risk:  
+  - Insider Risk:  
+  - Device Platforms:   
+  - Locations:  
+    - Include: **All**  
+    - Exclude: **All Compliant Network locations**  
+  - Client apps:  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant: **Block access**  
+* Session:  
 
 This requires that the Global Secure Access client is active. Breakglass, ServiceAccounts and Admins will need to be added to the exclusion.
 
 ### CA010-Global-AttackSurfaceReduction-Exchange&Sharepoint-Windows-TokenProtection-Enforce Token Protection for Exchange & Sharepoint on Desktop applications v1.0
-This is set to **All Users** with **<ins>Breakglass</ins>** exclusion **Guest or external users, All external Azure AD organizations** exclusion **<ins>ServiceAccounts</ins>** exclusion **<ins>Admins</ins>** exclusion, Device platforms **Windows**, Client apps **Mobile app and desktop clients**, Target resources **Exchange, SharePoint**, Session **Token protection for session**
+* Users:  
+  - Include: **All Users**  
+  - Exclude: **<ins>Breakglass</ins>**, **Guest or external users, All external Azure AD organizations**, **<ins>ServiceAccounts</ins>**, **<ins>Admins</ins>**  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **Exchange, SharePoint**  
+    - Exclude:  
+* Network: No  
+* Conditions:  
+  - User Risk:  
+  - Sign-in Risk:  
+  - Insider Risk:  
+  - Device Platforms:  
+    - Include: **Windows**  
+    - Exclude:    
+  - Locations:  
+  - Client apps: **Mobile app and desktop clients**  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant:    
+* Session: **Token protection for session**  
 
 Token Protection binds a token to a device, preventing token relay attacks. Currently only supported for Exchange and SharePoint.
 
 ### CA011-Global-Data&AppProtection-O365-Windows-APP-Require App Protection Policy for Office 365 on the Web for Unmanaged Windows devices v1.0
-This is set to **All Users** with **<ins>Breakglass</ins>** exclusion **Guest or external users, All external Azure AD organizations** exclusion **<ins>ServiceAccounts</ins>** exclusion **<ins>Admins</ins>** exclusion, Device platforms **Windows**, Client apps **Browser**, Target resources **O365**, Grant **App protection policy**
+* Users:  
+  - Include: **All Users**  
+  - Exclude: **<ins>Breakglass</ins>**, **Guest or external users, All external Azure AD organizations**, **<ins>ServiceAccounts</ins>**, **<ins>Admins</ins>**  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **O365**  
+    - Exclude:  
+* Network: No  
+* Conditions:  
+  - User Risk:  
+  - Sign-in Risk:  
+  - Insider Risk:  
+  - Device Platforms:  
+    - Include: **Windows**    
+    - Exclude:    
+  - Locations:  
+  - Client apps: **Browser**  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant: **Grant access**, **App protection policy**  
+* Session:  
 
 Requires a Windows App Protection Policy or a Compliant device when accessing O365.
 
 ### CA012-Global-Data&AppProtection-O365-AnyPlatform-AppRestriction-Enforce App Enforced Restrictions for Office 365 v1.0
-This is set to **All Users** with **<ins>Breakglass</ins>** exclusion **<ins>ServiceAccounts</ins>** exclusion, Client apps **Browser**, Target resources **Exchange**, Session **App enforced restrictions**
+* Users:  
+  - Include: **All Users**  
+  - Exclude: **<ins>Breakglass</ins>**, **<ins>ServiceAccounts</ins>**  
+* Target resources:  
+  - Resources (formerly cloud apps):  
+    - Include: **Exchange**  
+    - Exclude:  
+* Network: No  
+* Conditions:  
+  - User Risk:  
+  - Sign-in Risk:  
+  - Insider Risk:  
+  - Device Platforms:  
+    - Include:    
+    - Exclude:    
+  - Locations:  
+  - Client apps: **Browser**  
+  - Filter for devices:  
+  - Authentication flows:  
+* Grant:  
+* Session: **App enforced restrictions**  
 
 Enforcing App Enforced Restrictions for Office 365 ensures the Session Timeout configured in the Microsoft 365 Admin portal is applied. This policy supersedes the session timeout settings in SharePoint.
 
