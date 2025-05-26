@@ -323,8 +323,6 @@ You will need to select the Directory Roles. I recommend everything Administrato
   - Sign-in Risk: **High, Medium**  
   - Insider Risk:  
   - Device Platforms:  
-    - Include:    
-    - Exclude:    
   - Locations:  
   - Client apps:  
   - Filter for devices:  
@@ -690,8 +688,6 @@ Requires a Windows App Protection Policy or a Compliant device when accessing O3
   - Sign-in Risk:  
   - Insider Risk:  
   - Device Platforms:  
-    - Include:    
-    - Exclude:    
   - Locations:  
   - Client apps: **Browser**  
   - Filter for devices:  
@@ -715,8 +711,6 @@ Enforcing App Enforced Restrictions for Office 365 ensures the Session Timeout c
   - Sign-in Risk:  
   - Insider Risk:  
   - Device Platforms:  
-    - Include:    
-    - Exclude:    
   - Locations:  
   - Client apps:  
   - Filter for devices: Yes  
@@ -861,8 +855,6 @@ You will need to define the Marketing group, the Target resources and the Sessio
   - Sign-in Risk:  
   - Insider Risk:  
   - Device Platforms:  
-    - Include:    
-    - Exclude:    
   - Locations:  
     - Include: **All**   
     - Exclude: **All Trusted**   
@@ -913,8 +905,6 @@ This policy prevents Service Accounts from accessing resources from untrusted lo
   - Sign-in Risk:  
   - Insider Risk:  
   - Device Platforms:  
-    - Include:    
-    - Exclude:    
   - Locations:  
     - Include: **All**    
     - Exclude: **All Trusted**   
@@ -1034,8 +1024,6 @@ This policy prevents Workload IDs from accessing resources from untrusted locati
   - Sign-in Risk:  
   - Insider Risk:  
   - Device Platforms:  
-    - Include:    
-    - Exclude:    
   - Locations:  
   - Client apps:  
   - Filter for devices:  
@@ -1059,8 +1047,6 @@ Protects against compromised workload identities by blocking access for accounts
   - Sign-in Risk:  
   - Insider Risk:  
   - Device Platforms:  
-    - Include:    
-    - Exclude:    
   - Locations:  
     - Include: **All**   
     - Exclude: **All Trusted**   
@@ -1088,8 +1074,6 @@ Protects against location-based attacks by ensuring workload identities are only
   - Sign-in Risk:  
   - Insider Risk: **Elevated**  
   - Device Platforms:  
-    - Include:    
-    - Exclude:    
   - Locations:  
   - Client apps:  
   - Filter for devices:  
@@ -1115,8 +1099,6 @@ Requires M365 E5 Compliance add-on license.
   - Sign-in Risk:  
   - Insider Risk: **Moderate**  
   - Device Platforms:  
-    - Include:    
-    - Exclude:    
   - Locations:  
   - Client apps:  
   - Filter for devices:  
@@ -1142,8 +1124,6 @@ Requires M365 E5 Compliance add-on license.
   - Sign-in Risk:  
   - Insider Risk:  
   - Device Platforms:  
-    - Include:    
-    - Exclude:    
   - Locations:  
   - Client apps:  
   - Filter for devices:  
@@ -1169,8 +1149,6 @@ This policy will require testing for legitimate uses, specifically devices with 
   - Sign-in Risk:  
   - Insider Risk:  
   - Device Platforms:  
-    - Include:    
-    - Exclude:    
   - Locations:  
   - Client apps:  
   - Filter for devices:  
@@ -1192,8 +1170,6 @@ This policy will require testing for legitimate uses, specifically devices with 
   - Sign-in Risk: **High, Medium**  
   - Insider Risk:  
   - Device Platforms:  
-    - Include:    
-    - Exclude:    
   - Locations:  
   - Client apps:  
   - Filter for devices:  
@@ -1217,8 +1193,6 @@ CA102 applies similar controls to admins. CA107 extends these controls with Pass
   - Sign-in Risk:  
   - Insider Risk:  
   - Device Platforms:  
-    - Include:    
-    - Exclude:    
   - Locations:  
   - Client apps:  
   - Filter for devices:  
@@ -1242,8 +1216,6 @@ Enforcing MFA on users with low and medium risk, allows self-remediation for low
   - Sign-in Risk:  
   - Insider Risk: **Minor**  
   - Device Platforms:  
-    - Include:    
-    - Exclude:    
   - Locations:  
   - Client apps:  
   - Filter for devices:  
@@ -1269,8 +1241,6 @@ You must create the Terms Of Use before configuring this policy. You can create 
   - Sign-in Risk: **High**  
   - Insider Risk:  
   - Device Platforms:  
-    - Include:    
-    - Exclude:    
   - Locations:  
   - Client apps:  
   - Filter for devices:  
@@ -1294,8 +1264,6 @@ CA102 applies MFA controls to admins. CA107 extends these controls with Password
   - Sign-in Risk:  
   - Insider Risk:  
   - Device Platforms:  
-    - Include:    
-    - Exclude:    
   - Locations:  
   - Client apps:  
   - Filter for devices:  
@@ -1319,8 +1287,6 @@ CA102 applies MFA controls to admins. CA107 extends these controls with Password
   - Sign-in Risk:  
   - Insider Risk:  
   - Device Platforms:  
-    - Include:    
-    - Exclude:    
   - Locations:  
   - Client apps:  
   - Filter for devices:  
